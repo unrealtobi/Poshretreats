@@ -10,9 +10,9 @@ const Navbar = () => {
   };
   return (
     <nav className="bg-white border-b md:border-b  fixed w-full z-50">
-      <div className="container mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
+      <div className=" mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
         {/* Logo Section */}
-        <img src="/Logo.svg" alt="Logo" className="md:h-10 md:w-auto h-6 " />
+        <img src="/Logo.svg" alt="Logo" href="/" className="md:h-10 md:w-auto h-6 " />
 
         {/* Burger Button */}
 

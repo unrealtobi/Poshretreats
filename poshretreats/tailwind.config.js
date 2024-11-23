@@ -37,7 +37,7 @@ export default {
         raleway: ["Raleway", "sans-serif"],
       },
       fontSize: {
-        "10xl": "140px", // Explicitly define the class
+        "10xl": "150px", // Explicitly define the class
       },
       screens: {
         sm: { min: "768px", max: "1024px" },

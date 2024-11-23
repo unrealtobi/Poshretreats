@@ -42,7 +42,8 @@ export default {
       screens: {
         sm: { min: "768px", max: "1024px" },
         tablet: { min: "768px", max: "1024px" },
-        md: { min: "1025px", max: "1440px" },
+        md: { min: "1025px", max: "1920px" }, // Covers typical desktop resolutions
+        lg: { min: "1921px" }, // Define large desktops or higher resolutions
       },
     },
   },

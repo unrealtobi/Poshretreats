@@ -15,3 +15,11 @@
 .animate-progress {
   animation: grow 5s linear;
 }
+.phone-input-container {
+  width: 100% !important; /* Ensure the entire component is full width */
+}
+
+.phone-input-container .form-control {
+  width: 100% !important; /* Force the inner input to take up the full width */
+  box-sizing: border-box; /* Ensure proper padding and border rendering */
+}

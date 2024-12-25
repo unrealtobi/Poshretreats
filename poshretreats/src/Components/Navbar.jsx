@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { LuMenu } from "react-icons/lu";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -12,7 +13,12 @@ const Navbar = () => {
     <nav className="bg-white border-b md:border-b  fixed w-full z-50">
       <div className=" mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
         {/* Logo Section */}
-        <img src="/Logo.svg" alt="Logo" href="/" className="md:h-10 md:w-auto h-6 " />
+        <img
+          src="/Logo.svg"
+          alt="Logo"
+          href="/"
+          className="md:h-10 md:w-auto h-6 "
+        />
 
         {/* Burger Button */}
 
@@ -77,8 +83,8 @@ const Navbar = () => {
 
         {/* Contact Us Button */}
         <div>
-          <a
-            href="/contact-us"
+          <button
+            onClick={() => navigate("/contact-poshretreats")}
             className="relative md:block hidden bg-customGreen text-sm font-roboto font-medium text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen group hover:bg- transition-colors duration-300 ease-in-out"
           >
             <span className="relative z-10">Contact Us</span>
@@ -86,7 +92,7 @@ const Navbar = () => {
             <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover:translate-x-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
             {/* Right Flower */}
             <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover:-translate-x-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-          </a>
+          </button>
 
           <button
             className="md:hidden text-gray-700 text-2xl focus:outline-none"
@@ -169,7 +175,7 @@ const Navbar = () => {
 
           {/* Contact Us Button */}
           <a
-            href="/contact"
+            href="/contact-poshretreats"
             className="bg-customGreen text-white text-center px-6 py-3 rounded-md w-full hover:bg-green-600 mt-4"
           >
             Contact Us

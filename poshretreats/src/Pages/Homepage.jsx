@@ -150,7 +150,7 @@ const HomePage = () => {
                 {slides[currentSlide].subtitle}
               </h2>
               <h1
-                className="text-red-600 font-bold text-[50px] order-1 md:order-2 leading-tight -translate-x-2 md:text-10xl sm:text-[73px]  font-raleway relative"
+                className="text-white font-bold text-[50px] order-1 md:order-2 leading-tight -translate-x-2 md:text-9xl sm:text-[73px]  font-raleway relative"
                 style={{
                   WebkitMaskImage:
                     "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 100%)",

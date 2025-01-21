@@ -37,7 +37,7 @@ const HowWeWork = () => {
   ];
 
   return (
-    <div className="bg-customGreen md:pb-20 sm:pb-10 pb-8">
+    <div className="bg-transparent md:pb-16 sm:pb-10 pb-8">
       {/* Header Section */}
       <div className="text-center md:px-96 sm:px-40 px-16 pt-2 md:pt-8">
         <h2 className="mt-12 font-roboto text-gray-200 font-light md:text-lg">
@@ -63,7 +63,6 @@ const HowWeWork = () => {
                   {step.icon}
                 </div>
               </div>
-              
             </div>
 
             {/* Title */}
@@ -73,6 +72,14 @@ const HowWeWork = () => {
             <p className="text-sm leading-relaxed ">{step.description}</p>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center mt-8">
+        <button
+          href=""
+          className="mt-6 px-6 py-3 bg-white text-customGreen font-medium text-sm rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
+        >
+          Book a Trip
+        </button>
       </div>
     </div>
   );

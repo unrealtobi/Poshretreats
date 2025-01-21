@@ -7,6 +7,7 @@ import HowWeWork from "../Components/PageyComponents/HowWeWork";
 import PinterestLayout from "../Components/PageyComponents/PinterestLayout";
 import ReviewsSection from "../Components/PageyComponents/ReviewsSection";
 import FAQs from "../Components/PageyComponents/FAQs";
+import Blogs from "../Components/PageyComponents/Blogs";
 
 const useInView = (options) => {
   const [isInView, setIsInView] = useState(false);
@@ -295,11 +296,11 @@ const HomePage = () => {
           <h2 className="md:text-base text-xs mt-8 font-roboto text-gray-500">
             ABOUT US
           </h2>
-          <h1 className="font-raleway md:text-4xl px-8 mt-2 md:font-semibold md:px-20 font-semibold  text-2xl">
+          <h1 className="font-raleway md:text-4xl px-8 mt-2 md:font-semibold md:px-28 font-semibold  text-2xl">
             Empowering Explorers to Journey{" "}
             <span className="text-customGreen">Without Limits</span>
           </h1>
-          <p className="font-roboto text-gray-700 md:text-base px-8 md:px-0 tablet:px-20 text-sm mt-4 ">
+          <p className="font-roboto text-gray-700 md:text-base px-8 md:px-16 tablet:px-20 text-sm mt-4 md:mt-8">
             Posh Retreats emerged from a profound passion for exploring the
             world, transcending the barriers of passport privilege. Our
             philosophy rejects the limitations of waiting for travel companions
@@ -327,197 +328,28 @@ const HomePage = () => {
           backgroundBlendMode: "overlay",
         }}
       >
-        <div className="">
-          <div className="md:pt-16 pt-12 md:px-80 sm:px-40  px-10 text-white text-center">
-            <h2 className="  font-roboto md:font-light text-gray-200 font-light  md:text-lg">
-              TRIPS
-            </h2>
-            <h1 className="md:text-4xl font-raleway mt-2 text-2xl  font-semibold  md:font-medium">
-              Your Way to <span className="text-customPink">Explore</span>: Solo
-              Retreats or Shared Experiences
-            </h1>
-          </div>
-          <div className="md:justify-between md:px-20 px-4 sm:px-10 mt-10   md:mt-14 md:flex">
-            
-            {/* Private Trips Card */}
-            <div className="bg-white md:w-[510px] md:block hidden sm:hidden rounded-xl md:h-72 md:flex relative overflow-hidden group">
-              <div className="flex-1 flex flex-col justify-between p-6">
-                <div className="">
-                  <h3 className="text-2xl font-roboto font-medium">
-                    Private Trips
-                  </h3>
-                  <p className="text-gray-600 px-5 font-robot text-sm -translate-x-5">
-                    Let our expert trip planners craft your mind-blowing private
-                    getaway.
-                  </p>
-                </div>
-
-                <a
-                  href="/contact-us"
-                  className="relative bg-customGreen text-white md:px-8 md:py-3 font-roboto text-xs rounded-lg mt-4 self-start md:mt-8 font-medium px-6 py-2.5 shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen transition-colors duration-300 ease-in-out group/button"
-                >
-                  <span className="relative z-10 whitespace-nowrap">
-                    Start Exploring
-                  </span>
-                  {/* Left Flower */}
-                  <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-                  {/* Right Flower */}
-                  <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:-translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-                </a>
-              </div>
-
-              {/* Image Section */}
-              <div className="flex-1 relative overflow-hidden z-10 transition-transform duration-300 ease-in-out group-hover:scale-125">
-                <img
-                  src="https://res.cloudinary.com/dtaqusjav/image/upload/v1732268332/side-view-woman-wearing-vacation-outfit_dlrmqm.png"
-                  alt="Private Trips"
-                  className="absolute bottom-0 right-8 w-auto h-full object-cover transition-transform duration-400 ease-[cubic-bezier(0.3, 1.1, 0.6, 1.0)]"
-                />
-              </div>
-
-              {/* Pink Section */}
-              <div
-                className="absolute top-0 right-0 bg-customPink h-2/3 w-1/3 z-0 transition-all duration-400 ease-[cubic-bezier(0.3, 1.1, 0.6, 1.0)] group-hover:h-[90%] group-hover:w-[55%]"
-                style={{ clipPath: "polygon(0 0, 100% 0, 140% 100%)" }}
-              ></div>
-            </div>
-
-            {/* Group Trips Card */}
-            <div className="bg-white md:w-[510px] md:block hidden rounded-xl md:h-72 md:flex sm:hidden relative overflow-hidden group">
-              <div className="flex-1 flex flex-col justify-between p-6">
-                <div className="">
-                  <h3 className="text-2xl font-roboto font-medium">
-                    Group Trips
-                  </h3>
-                  <p className="text-gray-600 px-5 font-robot text-sm -translate-x-5">
-                    Join our immersive group trips and explore with like-minded
-                    travelers.
-                  </p>
-                </div>
-
-                <a
-                  href="/contact-us"
-                  className="relative bg-customGreen text-white md:px-8 md:py-3 font-roboto text-xs rounded-lg mt-4 self-start md:mt-8 font-medium px-6 py-2.5 shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen transition-colors duration-300 ease-in-out group/button"
-                >
-                  <span className="relative z-10 whitespace-nowrap">
-                    Start Exploring
-                  </span>
-                  {/* Left Flower */}
-                  <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-                  {/* Right Flower */}
-                  <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:-translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-                </a>
-              </div>
-
-              {/* Image Section */}
-              <div className="flex-1 relative overflow-hidden z-10 transition-transform duration-300 ease-in-out group-hover:scale-110">
-                <img
-                  src="https://res.cloudinary.com/dtaqusjav/image/upload/v1732268328/side-view-smiley-people-taking-selfie_drrst0.png"
-                  alt="Group Trips"
-                  className="absolute -bottom-4 right-0 w-auto h-full object-cover transition-transform duration-400 ease-[cubic-bezier(0.3, 1.1, 0.6, 1.0)]"
-                />
-              </div>
-
-              {/* Pink Section */}
-              <div
-                className="absolute top-0 right-0 bg-customPink h-2/3 w-1/3 z-0 transition-all duration-400 ease-[cubic-bezier(0.3, 1.1, 0.6, 1.0)] group-hover:h-[90%] group-hover:w-[55%]"
-                style={{ clipPath: "polygon(0 0, 100% 0, 140% 100%)" }}
-              ></div>
-            </div>
-            <div className="flex sm:flex sm:flex-row flex-col gap-8">
-              {/* mobile view card */}
-              <div className="bg-white md:w-[510px] md:hidden block h-96 md:rounded-xl rounded-xl  md:h-72 md:flex flex flex-col md:relative relative overflow-hidden group">
-                <div className="md:flex-1 flex-1 flex flex-col md:flex md:flex-col md:justify-between md:p-6 p-4">
-                  <div className="z-50">
-                    <h3 className="text-2xl font-roboto font-medium">
-                      Private Trips
-                    </h3>
-                    <p className="text-gray-600 md:px-5 font-roboto text-sm  md:-translate-x-5">
-                      Let our expert trip planners craft your mind-blowing
-                      private getaway.
-                    </p>
-                  </div>
-
-                  <a
-                    href="/contact-us"
-                    className="relative bg-customGreen text-white md:px-8 md:py-3  font-roboto text-sm rounded-lg mt-4 self-start md:mt-8 font-medium px-10 py-3 shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen "
-                  >
-                    <span className="relative z-10 whitespace-nowrap">
-                      Start Exploring
-                    </span>
-                    {/* Left Flower */}
-                    <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 "></div>
-                    {/* Right Flower */}
-                    <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:-translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 "></div>
-                  </a>
-                </div>
-
-                {/* Image Section */}
-                <div className="md:flex-1 flex-1 md:relative relative md:overflow-hidden md:z-10 ">
-                  <img
-                    src="https://res.cloudinary.com/dtaqusjav/image/upload/v1732268332/side-view-woman-wearing-vacation-outfit_dlrmqm.png"
-                    alt="Private Trips"
-                    className="md:absolute absolute md:bottom-0 bottom-0 md:right-8 right-1/2 object-cover translate-x-1/2 md:w-auto w-72 md:h-full h-full md:object-cover "
-                  />
-                </div>
-
-                {/* Pink Section */}
-                <div
-                  className="absolute top-0 right-0 bg-customPink md:h-2/3 h-2/3 md:w-1/3 w-1/2 z-0"
-                  style={{ clipPath: "polygon(0 0, 100% 0, 140% 100%)" }}
-                ></div>
-              </div>
-              {/* mobile group trip  */}
-              <div className="bg-white md:w-[510px] md:hidden block h-96 md:rounded-xl rounded-xl  md:h-72 md:flex flex flex-col md:relative relative overflow-hidden group">
-                <div className="md:flex-1 flex-1 flex flex-col md:flex md:flex-col md:justify-between md:p-6 p-4">
-                  <div className="z-50">
-                    <h3 className="text-2xl font-roboto font-medium">
-                      Group Trips
-                    </h3>
-                    <p className="text-gray-600 md:px-5 font-roboto text-sm  md:-translate-x-5">
-                      Join our immersive group trips and explore with
-                      like-minded travelers.
-                    </p>
-                  </div>
-
-                  <a
-                    href="/contact-us"
-                    className="relative bg-customGreen text-white md:px-8 md:py-3  font-roboto text-sm rounded-lg mt-4 self-start md:mt-8 font-medium px-10 py-3 shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen "
-                  >
-                    <span className="relative z-10 whitespace-nowrap">
-                      Start Exploring
-                    </span>
-                    {/* Left Flower */}
-                    <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 "></div>
-                    {/* Right Flower */}
-                    <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover/button:-translate-x-10 group-hover/button:opacity-100 group-hover/button:scale-110 "></div>
-                  </a>
-                </div>
-
-                {/* Image Section */}
-                <div className="md:flex-1 flex-1 md:relative relative md:overflow-hidden md:z-10 ">
-                  <img
-                    src="https://res.cloudinary.com/dtaqusjav/image/upload/v1732268328/side-view-smiley-people-taking-selfie_drrst0.png"
-                    alt="Group Trips"
-                    className="md:absolute absolute md:bottom-0 bottom-0 md:right-8 right-1/2 object-cover translate-x-1/2 md:w-auto w-80 md:h-full h-full md:object-cover"
-                  />
-                </div>
-
-                {/* Pink Section */}
-                <div
-                  className="absolute top-0 right-0 bg-customPink md:h-2/3 h-2/3 md:w-1/3 w-1/2 z-0"
-                  style={{ clipPath: "polygon(0 0, 100% 0, 140% 100%)" }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <HowWeWork />
       </section>
-      <FeaturedTrips/>
-      <HowWeWork/>
-      <PinterestLayout/>
-      <ReviewsSection/>
-      <FAQs/>
+      <div className="relative w-full overflow-hidden">
+        <FeaturedTrips />
+      </div>
+      <div className="relative w-full overflow-hidden">
+        <Blogs />
+      </div>
+      <section
+        className="relative z-30 md:pb-16 pb-12 bg-customGreen"
+        style={{
+          backgroundImage: "url('/flowerpage.svg')", // Adjust the image path if needed
+          //   backgroundSize: "cover",
+          backgroundSize: "100%",
+          backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
+        }}
+      >
+        <ReviewsSection />
+      </section>
+      <PinterestLayout />
+      <FAQs />
     </>
   );
 };

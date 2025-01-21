@@ -1,5 +1,7 @@
 import { useState } from "react";
 import beachpic from "../Images/Beachchair.svg";
+import { FaCircleCheck } from "react-icons/fa6";
+import ReusableButton from "../Components/FlowerButton";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import {
@@ -11,8 +13,7 @@ import {
   MdPhone,
 } from "react-icons/md";
 
-
-import { db } from "../firebase.config"; 
+import { db } from "../firebase.config";
 import { doc, setDoc } from "firebase/firestore";
 
 // React Spinners
@@ -38,10 +39,12 @@ const ContactUs = () => {
     const updatedForm = { ...formData, [field]: value };
     setFormData(updatedForm);
 
-    // Check if all fields are filled
-    const allFieldsFilled = Object.values(updatedForm).every(
-      (val) => val.trim() !== ""
+    // Exclude "message" field from validation
+    const requiredFields = ["firstName", "lastName", "email", "phoneNumber"];
+    const allFieldsFilled = requiredFields.every(
+      (field) => updatedForm[field]?.trim() !== ""
     );
+
     setIsFormValid(allFieldsFilled);
   };
 
@@ -94,21 +97,6 @@ const ContactUs = () => {
   };
 
   // If loading, show spinner for entire form area
- 
-
-  // If form is successfully submitted, show "Thank you" message
-  if (submitted) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <h1 className="text-2xl font-raleway font-bold text-black mb-4">
-          Thank You!
-        </h1>
-        <p className="text-gray-700 font-roboto text-sm text-center">
-          We’ve received your information and will be in touch shortly.
-        </p>
-      </div>
-    );
-  }
 
   // Otherwise, show the form
   return (
@@ -147,136 +135,174 @@ const ContactUs = () => {
           {/* Right Section with Form */}
           <div className="md:w-1/2 w-full bg-white mt-20 flex items-center justify-center md:p-8 px-4 sm:px-8 py-6">
             <div className="w-full">
-              <div className="flex justify-center flex-col text-center mb-6">
-                <h1 className="md:text-3xl text-2xl font-raleway font-bold mb-2 text-black">
-                  Get in Touch with Us
-                </h1>
-                <p className="text-gray-800 sm:px-48 md:px-28 text-xs">
-                  Need help? Contact the Posh Retreats team for personalized
-                  assistance and travel inquiries.
-                </p>
-              </div>
-              <form
-                className="sm:mt-2 md:px-8 md:mt-16 w-full"
-                onSubmit={handleSubmit}
-              >
-                <div className="md:flex md:gap-4 mb-4">
-                  <div className="md:w-1/2 w-full">
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-normal text-black"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      id="firstName"
-                      type="text"
-                      placeholder="Enter your first name"
-                      aria-label="First Name"
-                      value={formData.firstName}
-                      onChange={(e) =>
-                        handleChange("firstName", e.target.value)
-                      }
-                      className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
-                    />
-                  </div>
-                  <div className="md:w-1/2 w-full mt-4 md:mt-0">
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-normal text-black"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      id="lastName"
-                      type="text"
-                      placeholder="Enter your last name"
-                      aria-label="Last Name"
-                      value={formData.lastName}
-                      onChange={(e) => handleChange("lastName", e.target.value)}
-                      className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
-                    />
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-normal text-black"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                    aria-label="Email Address"
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
+              {/* Conditional Rendering for Form or Success Message */}
+              {submitted ? (
+                // Success Message
+                <div className="flex flex-col md:-translate-y-12 items-center justify-center h-full">
+                  <img
+                    src="/logoflexed.svg"
+                    alt="Logo"
+                    href="/"
+                    className="md:h-36  md:w-auto h-36 "
                   />
+                  <div className="flex items-center justify-center mt-8">
+                    <FaCircleCheck className="text-green-600 md:text-2xl text-lg mr-3" />
+                    <h1 className="md:text-lg  text-base font-raleway font-light text-black">
+                      Your message was sent successfully!
+                    </h1>
+                  </div>
+                  <div className="md:px-48 px-4">
+                    <p className="text-gray-700 font-roboto text-xs md:mt-6 mt-4 text-center">
+                      We’ve received your information and will be in touch
+                      shortly.
+                    </p>
+                  </div>
+                  <ReusableButton label="Back to Home" route="/" />
                 </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="phoneNumber"
-                    className="block text-sm font-normal mb-1 text-black"
-                  >
-                    Phone Number
-                  </label>
-                  <PhoneInput
-                    id="phoneNumber"
-                    country={"ca"}
-                    value={formData.phoneNumber}
-                    onChange={(value) => handleChange("phoneNumber", value)}
-                    containerClass="phone-input-container w-full"
-                    inputClass="phone-input-field w-full border border-gray-300 p-4 rounded-md"
-                  />
-                </div>
+              ) : (
+                <>
+                  {/* Heading and Description */}
+                  <div className="flex justify-center flex-col text-center mb-6">
+                    <h1 className="md:text-3xl text-2xl font-raleway font-bold mb-2 text-black">
+                      Get in Touch with Us
+                    </h1>
+                    <p className="text-gray-800 sm:px-48 md:px-28 text-xs">
+                      Need help? Contact the Posh Retreats team for personalized
+                      assistance and travel inquiries.
+                    </p>
+                  </div>
 
-                <div className="mb-6">
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-normal text-black"
+                  {/* Form */}
+                  <form
+                    className="sm:mt-2 md:px-8 md:mt-16 w-full"
+                    onSubmit={handleSubmit}
                   >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    placeholder="Anything extra we should know? Tell us!😊"
-                    aria-label="Message"
-                    value={formData.message}
-                    onChange={(e) => handleChange("message", e.target.value)}
-                    className="mt-1 w-full border resize-none font-roboto text-gray-900 font-normal text-sm h-32 border-gray-300 p-3 rounded-md"
-                  ></textarea>
-                </div>
-                <button
-  type="submit"
-  onClick={handleSubmit} // or within your form's onSubmit
-  className={`w-full sm:p-3 p-2 font-roboto rounded-md flex items-center justify-center 
-    ${isFormValid && !loading 
-      ? "bg-customGreen text-white font-medium text-sm" 
-      : "bg-gray-200 text-gray-400 font-semibold text-sm cursor-not-allowed"} 
-    ${loading ? "opacity-60" : ""} 
-    transition-opacity duration-200
-  `}
-  disabled={!isFormValid || loading}
->
-  {loading ? (
-    // Show spinner if loading
-    <Oval 
-      height={20} 
-      width={20} 
-      color="#fff"  
-      ariaLabel="loading" 
-      secondaryColor="#fff"
-      strokeWidth={2}
-      strokeWidthSecondary={2}
-    />
-  ) : (
-    // Show button text if not loading
-    "Submit Form"
-  )}
-</button>
-              </form>
+                    <div className="md:flex md:gap-4 mb-4">
+                      <div className="md:w-1/2 w-full">
+                        <label
+                          htmlFor="firstName"
+                          className="block text-sm font-normal text-black"
+                        >
+                          First Name
+                        </label>
+                        <input
+                          id="firstName"
+                          type="text"
+                          placeholder="Enter your first name"
+                          aria-label="First Name"
+                          value={formData.firstName}
+                          onChange={(e) =>
+                            handleChange("firstName", e.target.value)
+                          }
+                          className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
+                        />
+                      </div>
+                      <div className="md:w-1/2 w-full mt-4 md:mt-0">
+                        <label
+                          htmlFor="lastName"
+                          className="block text-sm font-normal text-black"
+                        >
+                          Last Name
+                        </label>
+                        <input
+                          id="lastName"
+                          type="text"
+                          placeholder="Enter your last name"
+                          aria-label="Last Name"
+                          value={formData.lastName}
+                          onChange={(e) =>
+                            handleChange("lastName", e.target.value)
+                          }
+                          className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
+                        />
+                      </div>
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-normal text-black"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        aria-label="Email Address"
+                        value={formData.email}
+                        onChange={(e) => handleChange("email", e.target.value)}
+                        className="mt-1 w-full border font-roboto text-gray-900 font-normal text-sm border-gray-300 p-3 rounded-md"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label
+                        htmlFor="phoneNumber"
+                        className="block text-sm font-normal mb-1 text-black"
+                      >
+                        Phone Number
+                      </label>
+                      <PhoneInput
+                        id="phoneNumber"
+                        country={"ca"}
+                        value={formData.phoneNumber}
+                        onChange={(value) => handleChange("phoneNumber", value)}
+                        containerClass="phone-input-container w-full"
+                        inputClass="phone-input-field w-full border border-gray-300 p-4 rounded-md"
+                      />
+                    </div>
+
+                    <div className="mb-6">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-normal text-black"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        placeholder="Anything extra we should know? Tell us!😊"
+                        aria-label="Message"
+                        value={formData.message}
+                        onChange={(e) =>
+                          handleChange("message", e.target.value)
+                        }
+                        className="mt-1 w-full border resize-none font-roboto text-gray-900 font-normal text-sm h-32 border-gray-300 p-3 rounded-md"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      onClick={handleSubmit} // or within your form's onSubmit
+                      className={`w-full sm:p-3 p-2 font-roboto rounded-md flex items-center justify-center 
+                      ${
+                        loading
+                          ? "bg-customGreen opacity-60 text-white font-medium text-sm"
+                          : isFormValid
+                          ? "bg-customGreen text-white font-medium text-sm"
+                          : "bg-gray-200 text-gray-400 font-medium text-sm cursor-not-allowed"
+                      } 
+                      transition-opacity duration-200
+                    `}
+                      disabled={!isFormValid || loading}
+                    >
+                      {loading ? (
+                        // Show spinner if loading
+                        <Oval
+                          height={20}
+                          width={20}
+                          color="#fff"
+                          ariaLabel="loading"
+                          secondaryColor="#fff"
+                          strokeWidth={2}
+                          strokeWidthSecondary={2}
+                        />
+                      ) : (
+                        // Show button text if not loading
+                        "Submit Form"
+                      )}
+                    </button>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>

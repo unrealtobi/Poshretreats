@@ -1,6 +1,7 @@
-import sanityClient from "@sanity/client";
+import { createClient } from '@sanity/client';
 
-const client = sanityClient({
+
+const client = createClient({
   projectId: "hh4lwx39", // Replace with your actual project ID
   dataset: "production", // Replace with your dataset name (usually 'production')
   useCdn: true, // Enable CDN for faster, cached responses

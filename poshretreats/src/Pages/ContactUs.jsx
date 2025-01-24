@@ -352,7 +352,7 @@ const ContactUs = () => {
             </div>
 
             {/* Location Card */}
-            <div className="flex flex-col items-start px-2.5 py-5 sm:mt-6 mt-4 bg-white border rounded-md md:w-[360px]">
+            <div className="flex flex-col items-start px-2.5 py-5 sm:mt-6 mt-4 md:mt-0 bg-white border rounded-md md:w-[360px]">
               <MdOutlineLocationOn className="text-customGreen text-3xl mb-10" />
               <h3 className="text-sm font-semibold font-raleway text-black">
                 Visit us

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { LiaTimesSolid } from "react-icons/lia";
+import BlogList from "../Components/Blogs/BlogList";
 
 const FAQs = () => {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -81,6 +82,7 @@ const FAQs = () => {
           </div>
         ))}
       </div>
+      <BlogList/>
     </div>
   );
 };

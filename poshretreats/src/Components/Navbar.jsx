@@ -101,7 +101,10 @@ const Navbar = () => {
 
           <li>
             <a
-              onClick={() => navigate("/blogs")}
+              onClick={(e) => {
+                e.preventDefault(); // Prevent default anchor behavior
+                window.location.href = "http://localhost:3000"; // Redirect to Next.js app
+              }}
               className={`text-base font-roboto cursor-pointer font-semibold ${
                 isActiveLink("/blogs") ? "text-customGreen" : "text-gray-800"
               } hover:text-customGreen`}
@@ -109,6 +112,7 @@ const Navbar = () => {
               Blogs
             </a>
           </li>
+
           <li>
             <a
               onClick={() => navigate("/about")}

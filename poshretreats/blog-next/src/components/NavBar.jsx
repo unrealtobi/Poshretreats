@@ -11,26 +11,29 @@ const BASE_URL = "https://poshretreats.vercel.app"; // Replace with your React a
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Manage mobile menu state
   const pathname = usePathname(); // Get the current path
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const closeMobileMenu = () => {
-    const mobileMenu = document.querySelector("#mobile-menu");
-    if (mobileMenu) {
-      mobileMenu.classList.add("translate-x-full");
-    }
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const isActiveLink = (path) => pathname === path;
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Adjust the active link logic to avoid issues with external links
+  const isActiveLink = (path) => pathname === path || pathname === `${BASE_URL}${path}`;
 
   return (
     <nav className="bg-customBg border-b md:border-b fixed w-full z-50">
       <div className="mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
         {/* Logo Section */}
-        <Link href={`${BASE_URL}`}>
+        <Link href={`${BASE_URL}/`}>
           <Image
             src="/Logo.svg"
             alt="Logo"
@@ -131,11 +134,7 @@ const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-gray-700 text-2xl focus:outline-none"
-            onClick={() =>
-              document
-                .querySelector("#mobile-menu")
-                .classList.toggle("translate-x-full")
-            }
+            onClick={toggleMobileMenu}
           >
             <LuMenu />
           </button>
@@ -143,70 +142,72 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        id="mobile-menu"
-        className="fixed top-18 right-0 border-t h-full w-full sm:w-80 bg-white shadow-md transform translate-x-full transition-transform duration-300 ease-in-out md:hidden"
-      >
-        <div className="flex flex-col items-start mt-4 px-4 space-y-4">
-          <Link
-            href={`${BASE_URL}/`}
-            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            Home
-          </Link>
-          <Link
-            href={`${BASE_URL}/trips`}
-            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/trips") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            Trips
-          </Link>
-          <Link
-            href={`${BASE_URL}/deals`}
-            className={`relative text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/deals") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            Deals
-            <span className="absolute -top-1 left-10 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
-              10+
-            </span>
-          </Link>
-          <Link
-            href="/"
-            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/blogs") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            Blogs
-          </Link>
-          <Link
-            href={`${BASE_URL}/about`}
-            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/about") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            About Us
-          </Link>
-          <Link
-            href={`${BASE_URL}/faqs`}
-            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/faqs") ? "text-customGreen" : "text-gray-700"
-            }`}
-            onClick={closeMobileMenu}
-          >
-            FAQs
-          </Link>
+      {isMobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="fixed top-16 right-0 border-t h-full w-full sm:w-80 bg-white shadow-md md:hidden z-50 transition-transform"
+        >
+          <div className="flex flex-col items-start mt-4 px-4 space-y-4">
+            <Link
+              href={`${BASE_URL}/`}
+              className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              Home
+            </Link>
+            <Link
+              href={`${BASE_URL}/trips`}
+              className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/trips") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              Trips
+            </Link>
+            <Link
+              href={`${BASE_URL}/deals`}
+              className={`relative text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/deals") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              Deals
+              <span className="absolute -top-1 left-10 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                10+
+              </span>
+            </Link>
+            <Link
+              href="/"
+              className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/blogs") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              Blogs
+            </Link>
+            <Link
+              href={`${BASE_URL}/about`}
+              className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/about") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              About Us
+            </Link>
+            <Link
+              href={`${BASE_URL}/faqs`}
+              className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+                isActiveLink("/faqs") ? "text-customGreen" : "text-gray-700"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              FAQs
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

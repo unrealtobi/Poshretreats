@@ -20,10 +20,6 @@ const raleway = Raleway({
   style: ["normal", "italic"],
 });
 
-export const metadata = {
-  title: "My Blog",
-  description: "A great blog built with Next.js and Sanity",
-};
 
 export default function RootLayout({ children }) {
   return (

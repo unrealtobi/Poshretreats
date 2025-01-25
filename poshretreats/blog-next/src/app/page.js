@@ -39,7 +39,7 @@ export default async function Home() {
           content="Explore inspiring travel stories, tips, and more on Posh Retreats Blogs."
         />
         <meta property="og:image" content="/default-blog-image.jpg" />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://poshretreatsuk.vercel.app" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Posh Retreats Blogs" />
@@ -47,7 +47,7 @@ export default async function Home() {
           name="twitter:description"
           content="Explore inspiring travel stories, tips, and more on Posh Retreats Blogs."
         />
-        <meta name="twitter:image" content="/default-blog-image.jpg" />
+        
       </Head>
       <HomeContent posts={posts} uniqueTags={uniqueTags} />
     </>

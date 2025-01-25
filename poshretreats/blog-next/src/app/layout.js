@@ -1,6 +1,6 @@
 import { Roboto, Pacifico, Raleway } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const roboto = Roboto({

@@ -3,13 +3,63 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
-import Head from "next/head";
+
 // Configure the image URL builder
 const builder = imageUrlBuilder(client);
 
 // Helper function to generate image URLs
 function urlFor(source) {
   return builder.image(source);
+}
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const blogPost = await client.fetch(
+    `*[_type == "post" && slug.current == $slug][0]{
+      title,
+      description,
+      mainImage{
+        asset->{
+          url
+        }
+      }
+    }`,
+    { slug }
+  );
+
+  if (!blogPost) {
+    return {
+      title: 'Post not found',
+    };
+  }
+
+  // must use a fully qualified URL for og:image
+  const image = imageUrlBuilder(client)
+    .image(blogPost.mainImage?.asset?.url)
+    .url();
+
+  const url = `https://poshretreatsuk.vercel.app/blog/${slug}`;
+
+  return {
+    title: blogPost.title,
+    description: blogPost.description,
+    openGraph: {
+      title: blogPost.title,
+      description: blogPost.description,
+      url,
+      images: [
+        {
+          url: image,
+        },
+      ],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blogPost.title,
+      description: blogPost.description,
+      images: [image],
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }) {
@@ -76,19 +126,7 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-     <Head>
-        <title>{blogPost.title}</title>
-        <meta name="description" content={blogPost.description} />
-        <meta property="og:title" content={blogPost.title} />
-        <meta property="og:description" content={blogPost.description} />
-        <meta property="og:image" content={urlFor(blogPost.mainImage.asset).url()} />
-        <meta property="og:url" content={`https://yourdomain.com/blog/${slug}`} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blogPost.title} />
-        <meta name="twitter:description" content={blogPost.description} />
-        <meta name="twitter:image" content={urlFor(blogPost.mainImage.asset).url()} />
-      </Head>
+    
     <div className="px-4 md:px-12 sm:px-8 md:py-32 py-32 bg-customBg min-h-screen">
       {/* Blog Header */}
       <div className="mb-12 flex md:flex-row flex-col items-center">

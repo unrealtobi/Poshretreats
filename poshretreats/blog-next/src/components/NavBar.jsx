@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // Your external React app domain
-const EXTERNAL_DOMAIN = "https://poshretreats.com";
+const EXTERNAL_DOMAIN = "https://poshretreats.vercel.app";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-const BASE_URL = "https://poshretreats-tk00.onrender.com"; // Base URL for all routes
+const BASE_URL = "https://poshretreats.vercel.app"; // Replace with your React app's domain
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="bg-customBg border-b md:border-b fixed w-full z-50">
       <div className="mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
         {/* Logo Section */}
-        <Link href={`${BASE_URL}/`}>
+        <Link href={`${BASE_URL}`}>
           <Image
             src="/Logo.svg"
             alt="Logo"
@@ -89,7 +89,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href={`${BASE_URL}/blogs`}
+              href="/"
               className={`text-base font-roboto cursor-pointer font-semibold ${
                 isActiveLink("/blogs") ? "text-customGreen" : "text-gray-800"
               } hover:text-customGreen`}
@@ -122,14 +122,10 @@ const Navbar = () => {
         {/* Contact Us Button */}
         <div>
           <Link
-            href="/contact-poshretreats"
+            href={`${BASE_URL}/contact-poshretreats`}
             className="relative md:block hidden bg-customGreen text-sm font-roboto cursor-pointer font-medium text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen group hover:bg- transition-colors duration-300 ease-in-out"
           >
             <span className="relative z-10">Contact Us</span>
-            {/* Left Flower */}
-            <div className="absolute top-1 -left-10 w-16 h-16 bg-[url('/images/flowerright.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover:translate-x-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
-            {/* Right Flower */}
-            <div className="absolute top-1 -right-10 w-16 h-16 bg-[url('/images/flowerleft.svg')] bg-contain bg-no-repeat opacity-0 transform group-hover:-translate-x-10 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]"></div>
           </Link>
 
           {/* Mobile Menu Toggle */}
@@ -183,13 +179,31 @@ const Navbar = () => {
             </span>
           </Link>
           <Link
-            href={`${BASE_URL}/blogs`}
+            href="/"
             className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
               isActiveLink("/blogs") ? "text-customGreen" : "text-gray-700"
             }`}
             onClick={closeMobileMenu}
           >
             Blogs
+          </Link>
+          <Link
+            href={`${BASE_URL}/about`}
+            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+              isActiveLink("/about") ? "text-customGreen" : "text-gray-700"
+            }`}
+            onClick={closeMobileMenu}
+          >
+            About Us
+          </Link>
+          <Link
+            href={`${BASE_URL}/faqs`}
+            className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
+              isActiveLink("/faqs") ? "text-customGreen" : "text-gray-700"
+            }`}
+            onClick={closeMobileMenu}
+          >
+            FAQs
           </Link>
         </div>
       </div>

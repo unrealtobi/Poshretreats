@@ -101,12 +101,12 @@ const Navbar = () => {
 
           <li>
             <a
-              onClick={(e) => {
-                e.preventDefault(); // Prevent default anchor behavior
-                window.location.href = "http://localhost:3000"; // Redirect to Next.js app
-              }}
+              href="https://poshretreatsuk.vercel.app"
+              target="_self" // Opens in the same tab
               className={`text-base font-roboto cursor-pointer font-semibold ${
-                isActiveLink("/blogs") ? "text-customGreen" : "text-gray-800"
+                location.pathname.includes("/blog")
+                  ? "text-customGreen"
+                  : "text-gray-800"
               } hover:text-customGreen`}
             >
               Blogs
@@ -209,12 +209,12 @@ const Navbar = () => {
           </a>
 
           <a
-            onClick={() => {
-              navigate("/blogs");
-              closeMobileMenu(); // Close mobile menu
-            }}
+            href="https://poshretreatsuk.vercel.app" // Link to Next.js blog
+            target="_self" // Open in the same tab
             className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
-              isActiveLink("/blogs") ? "text-customGreen" : "text-gray-700"
+              location.pathname.includes("/blog")
+                ? "text-customGreen"
+                : "text-gray-700"
             }`}
           >
             Blogs

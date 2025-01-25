@@ -1,6 +1,6 @@
 import { Roboto, Pacifico, Raleway } from "next/font/google";
 import "./globals.css";
-// import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const roboto = Roboto({
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.variable} ${pacifico.variable} ${raleway.variable} antialiased`}
       >
-        {/* <Navbar /> */}
+        <Navbar />
         <main>{children}</main>
         <Footer />
       </body>

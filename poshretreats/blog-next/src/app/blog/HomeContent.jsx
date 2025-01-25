@@ -103,13 +103,13 @@ export default function HomeContent({ posts, uniqueTags }) {
   // };
 
   return (
-    <div className="px-8 md:py-40 sm:px-20 bg-customBg min-h-screen">
+    <div className="px-8 md:py-40 py-36 sm:px-8 bg-customBg min-h-screen">
       {/* Page Header */}
       <header className="text-center md:px-96 mb-12">
-        <h1 className="text-4xl font-raleway font-bold text-black mb-4">
+        <h1 className="md:text-4xl text-3xl font-raleway font-bold text-black mb-4">
           Stories That Inspire Your Next Adventure
         </h1>
-        <p className="text-gray-600 text-base">
+        <p className="text-gray-600 font-roboto text-base">
           From expert tips to unforgettable stories, dive into a world of
           inspiration and insights to make your journeys extraordinary.
         </p>
@@ -119,22 +119,22 @@ export default function HomeContent({ posts, uniqueTags }) {
       <div className="flex justify-center mb-12">
         <div className="relative flex flex-col items-center w-full max-w-lg">
           {/* Input and Search Button */}
-          <div className="flex items-center border border-gray-300 rounded-lg w-full px-2 py-1 bg-customBg">
+          <div className="flex items-center border py-1 px-2 border-gray-300 rounded-lg w-full md:px-2 md:py-1 bg-customBg">
             <input
               type="text"
               placeholder="Search title, tag, description..."
-              className="flex-grow outline-none bg-customBg text-gray-700 px-2"
+              className="flex-grow outline-none bg-customBg md:text-base text-sm text-gray-700 px-2"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button className="bg-customGreen text-sm text-white md:px-9 md:py-3 rounded-lg font-medium hover:bg-customDarkGreen transition-colors">
+            <button className="bg-customGreen text-sm text-white md:px-9 md:py-3 px-5 py-2 rounded-lg font-medium hover:bg-customDarkGreen transition-colors">
               Search
             </button>
           </div>
 
           {/* Dropdown suggestions (if any) */}
           {searchQuery && suggestions.length > 0 && (
-            <div className="absolute top-[105%] left-0 w-full bg-white border border-gray-300 rounded-md mt-1 shadow-lg z-10">
+            <div className="absolute top-[105%] left-0 w-full bg-customBg border border-gray-300 rounded-md mt-1 shadow-lg z-10">
               {suggestions.map((sug) => (
                 <div
                   key={sug}
@@ -156,10 +156,10 @@ export default function HomeContent({ posts, uniqueTags }) {
           Top Blogs
         </h2>
 
-        <div className="grid grid-cols-1 px-16 md:grid-cols-[2fr_1fr] gap-2">
+        <div className="grid grid-cols-1  md:px-16 md:grid-cols-[2fr_1fr] gap-2">
           {/* Featured Blog (first post) */}
           <div
-            className="w-[628px] transition-transform duration-300 hover:scale-105 cursor-pointer"
+            className="md:w-[628px]  w-full transition-transform duration-300 hover:scale-105 cursor-pointer"
             onClick={() => handleCardClick(posts[0].slug.current)}
           >
             {posts[0]?.mainImage?.asset?.url && (
@@ -169,10 +169,10 @@ export default function HomeContent({ posts, uniqueTags }) {
                   alt={posts[0].title}
                   width={600}
                   height={400}
-                  className="w-full h-[398px] rounded-lg object-cover"
+                  className="w-full md:h-[398px] sm:w-[428px] h-[220px] rounded-lg object-cover"
                 />
                 {posts[0].tag && (
-                  <span className="absolute top-4 left-4 text-base text-white font-roboto bg-[rgba(255,255,255,0.2)] px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
+                  <span className="absolute top-4 left-4 md:text-base text-sm text-white font-roboto bg-[rgba(255,255,255,0.2)] px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
                     {highlightText(posts[0].tag, searchQuery)}
                   </span>
                 )}
@@ -204,17 +204,17 @@ export default function HomeContent({ posts, uniqueTags }) {
             {posts.slice(1, 4).map((post) => (
               <div
                 key={post.slug.current}
-                className="flex w-[658px] rounded-lg h-[150px] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                className="flex md:flex-row flex-col md:w-[658px] rounded-lg md:h-[150px] transition-transform duration-300 hover:scale-105 cursor-pointer"
                 onClick={() => handleCardClick(post.slug.current)}
               >
                 {post.mainImage?.asset?.url && (
-                  <div className="relative w-1/3">
+                  <div className="relative md:w-1/3">
                     <Image
                       src={post.mainImage.asset.url}
                       alt={post.title}
                       width={200}
                       height={150}
-                      className="w-full rounded-lg h-full object-cover"
+                      className="w-full rounded-lg md:h-full h-[220px] sm:w-[428px] object-cover"
                     />
                     {post.tag && (
                       <span className="absolute top-2 left-2 bg-[rgba(0,0,0,0.4)] text-white text-xs px-3 py-1 rounded-full backdrop-blur-md font-medium shadow-lg">
@@ -223,12 +223,12 @@ export default function HomeContent({ posts, uniqueTags }) {
                     )}
                   </div>
                 )}
-                <div className="ml-2 w-2/3">
-                  <p className="text-xs text-gray-600 mb-1">
+                <div className="md:ml-2 py-2 md:py-0 md:w-2/3">
+                  <p className="md:text-xs text-sm text-gray-600 mb-1">
                     {new Date(post?.publishedAt).toLocaleDateString()} •{" "}
                     {post?.readTime}
                   </p>
-                  <h4 className="text-xl font-semibold font-raleway text-gray-900 mb-1">
+                  <h4 className="md:text-xl text-2xl font-semibold font-raleway text-gray-900 mb-1">
                     {highlightText(post.title, searchQuery)}
                   </h4>
                   <p className="text-sm text-gray-600">
@@ -312,6 +312,7 @@ export default function HomeContent({ posts, uniqueTags }) {
           ))}
         </div>
       </section>
+      
     </div>
   );
 }

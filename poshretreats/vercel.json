@@ -1,0 +1,13 @@
+{
+    "rewrites": [
+      {
+        "source": "/blog/:path*",  
+        "destination": "https://poshretreatsuk.vercel.app/:path*"
+      },
+      {
+        "source": "/:path*",
+        "destination": "https://poshretreats.vercel.app/:path*"
+      }
+    ]
+  }
+  

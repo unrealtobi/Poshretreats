@@ -7,23 +7,23 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import client from "@/sanityClient"; // Sanity client to fetch the deal count
 
-// Your external React app domain
-const EXTERNAL_DOMAIN = "https://poshretreats.vercel.app";
+// The domain for your React app
+const REACT_APP_DOMAIN = "https://poshretreatsuk.vercel.app";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [dealCount, setDealCount] = useState(0); // State to store the deal count
+  const [dealCount, setDealCount] = useState(0);
   const pathname = usePathname();
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Only highlight internal links (e.g., if your blog route is "/blogs")
+  // Check if Next.js route is active
   const isActiveLink = (path) => pathname === path;
 
   // Fetch the number of deals from Sanity
@@ -37,7 +37,6 @@ export default function Navbar() {
         console.error("Error fetching deal count:", error);
       }
     };
-
     fetchDealCount();
   }, []);
 
@@ -45,7 +44,7 @@ export default function Navbar() {
     <nav className="bg-customBg border-b fixed w-full z-50">
       <div className="mx-auto px-4 md:px-16 md:py-5 py-5 flex items-center justify-between">
         {/* Logo Section */}
-        <a href={EXTERNAL_DOMAIN}>
+        <a href={REACT_APP_DOMAIN}>
           <Image
             src="/Logo.svg"
             alt="Logo"
@@ -59,7 +58,7 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-8">
           <li>
             <a
-              href={`${EXTERNAL_DOMAIN}/`}
+              href={`${REACT_APP_DOMAIN}/`}
               className="text-base font-roboto font-semibold text-gray-800 hover:text-customGreen"
             >
               Home
@@ -67,7 +66,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href={`${EXTERNAL_DOMAIN}/trips`}
+              href={`${REACT_APP_DOMAIN}/trips`}
               className="text-base font-roboto font-semibold text-gray-800 hover:text-customGreen"
             >
               Trips
@@ -75,16 +74,17 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href={`${EXTERNAL_DOMAIN}/past-trips`}
+              href={`${REACT_APP_DOMAIN}/past-trips`}
               className="text-base font-roboto font-semibold text-gray-800 hover:text-customGreen"
             >
               Past Trips & Reviews
             </a>
           </li>
           <li className="relative">
+            {/* Local route in Next.js → use <Link> */}
             <Link
               href="/deals"
-              className={`text-base font-roboto font-semibold hover:text-customGreen  ${
+              className={`text-base font-roboto font-semibold hover:text-customGreen ${
                 isActiveLink("/deals") ? "text-customGreen" : "text-gray-800"
               }`}
             >
@@ -97,10 +97,11 @@ export default function Navbar() {
             )}
           </li>
           <li>
+            {/* Local route in Next.js → use <Link> */}
             <Link
               href="/"
               className={`text-base font-roboto font-semibold hover:text-customGreen ${
-                isActiveLink("/") ? "text-customGreen" : "text-gray-800"
+                isActiveLink("/blogs") ? "text-customGreen" : "text-gray-800"
               }`}
             >
               Blogs
@@ -108,7 +109,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href={`${EXTERNAL_DOMAIN}/about`}
+              href={`${REACT_APP_DOMAIN}/about`}
               className="text-base font-roboto font-semibold text-gray-800 hover:text-customGreen"
             >
               About Us
@@ -116,7 +117,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href={`${EXTERNAL_DOMAIN}/faqs`}
+              href={`${REACT_APP_DOMAIN}/faqs`}
               className="text-base font-roboto font-semibold text-gray-800 hover:text-customGreen"
             >
               FAQs
@@ -127,7 +128,7 @@ export default function Navbar() {
         {/* Contact Us Button */}
         <div>
           <a
-            href={`${EXTERNAL_DOMAIN}/contact-poshretreats`}
+            href={`${REACT_APP_DOMAIN}/contact-poshretreats`}
             className="relative md:block hidden bg-customGreen text-sm font-roboto font-medium text-white px-6 py-3 rounded-md shadow-md hover:shadow-lg hover:bg-customDarkGreen transition-colors duration-300 ease-in-out"
           >
             <span className="relative z-10">Contact Us</span>
@@ -151,21 +152,30 @@ export default function Navbar() {
         >
           <div className="flex flex-col items-start mt-4 px-4 space-y-4">
             <a
-              href={`${EXTERNAL_DOMAIN}/`}
+              href={`${REACT_APP_DOMAIN}/`}
               className="text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
               onClick={closeMobileMenu}
             >
               Home
             </a>
             <a
-              href={`${EXTERNAL_DOMAIN}/trips`}
+              href={`${REACT_APP_DOMAIN}/trips`}
               className="text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
               onClick={closeMobileMenu}
             >
               Trips
             </a>
             <a
-              href={`${EXTERNAL_DOMAIN}/deals`}
+              href={`${REACT_APP_DOMAIN}/past-trips`}
+              className="text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
+              onClick={closeMobileMenu}
+            >
+              Past Trips & Reviews
+            </a>
+
+            {/* Local route /deals in Next.js */}
+            <Link
+              href="/deals"
               className="relative text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
               onClick={closeMobileMenu}
             >
@@ -175,9 +185,11 @@ export default function Navbar() {
                   {dealCount}
                 </span>
               )}
-            </a>
+            </Link>
+
+            {/* Local route /blogs in Next.js */}
             <Link
-              href="/blogs"
+              href="/"
               className={`text-base font-roboto font-medium w-full py-3 border-b ${
                 isActiveLink("/blogs") ? "text-customGreen" : "text-gray-700"
               }`}
@@ -185,22 +197,23 @@ export default function Navbar() {
             >
               Blogs
             </Link>
+
             <a
-              href={`${EXTERNAL_DOMAIN}/about`}
+              href={`${REACT_APP_DOMAIN}/about`}
               className="text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
               onClick={closeMobileMenu}
             >
               About Us
             </a>
             <a
-              href={`${EXTERNAL_DOMAIN}/faqs`}
+              href={`${REACT_APP_DOMAIN}/faqs`}
               className="text-base font-roboto font-medium w-full py-3 border-b text-gray-700"
               onClick={closeMobileMenu}
             >
               FAQs
             </a>
             <a
-              href={`${EXTERNAL_DOMAIN}/contact-poshretreats`}
+              href={`${REACT_APP_DOMAIN}/contact-poshretreats`}
               className="text-base font-roboto font-medium w-full py-3 text-gray-700"
               onClick={closeMobileMenu}
             >

@@ -38,7 +38,7 @@ const PastTrips = () => {
     },
     {
       id: 5,
-      title: "Jet Ski-ing ",
+      title: "Para Sailing",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737456839/IMG_7335_1_ik7pjx.jpg",
       style:

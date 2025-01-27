@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import client from "../../sanityClient";
 
 // The domain for your Next.js app
-const NEXT_DOMAIN = "https://poshretreats.vercel.app";
+const NEXT_DOMAIN = "https://poshretreatsuk.vercel.app";
 
 const Navbar = () => {
   const [dealCount, setDealCount] = useState(0);

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { LiaTimesSolid } from "react-icons/lia";
 
-
 const FAQs = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
@@ -37,6 +36,31 @@ const FAQs = () => {
       answer:
         "No, we do not process visas directly. However, we provide guidance on the visa application process once you sign up for a trip.",
     },
+
+    {
+      id: 6,
+      question: "Do you have an age limit for your group trips?",
+      answer:
+        "Yes, our group trips are adults-only. We want to create a relaxed, mature environment where everyone can thoroughly enjoy the experience!",
+    },
+    {
+      id: 7,
+      question: "When will group trips be coming back?",
+      answer:
+        "We're busy working behind the scenes to ensure everything is 100% compliant with the regulators, and we’re on track to launch our 2026 calendar mid-year 2025. We know it’s not the news you were hoping for, but trust us – we’ll be back bigger, better, and stronger than ever! Stay tuned for what’s to come.",
+    },
+    {
+      id: 8,
+      question: "Do you charge for this service?",
+      answer:
+        "Yes, we do charge for our custom trip-planning service. It’s £15 per adult and £5 per child. This covers the time and effort we put into crafting a trip just right for you!",
+    },
+    {
+      id: 9,
+      question: "How do you plan a private trip?",
+      answer:
+        "Planning your private trip with us is simple! Once you reach out, we'll discuss your ideal holiday—your budget, preferred accommodation, flights, and activities. Based on your input, we’ll propose various options so you can pick the perfect holiday tailored just for you.",
+    },
   ];
 
   const toggleFaq = (id) => {
@@ -47,7 +71,7 @@ const FAQs = () => {
     <div className="bg-customBg py-40">
       <div className="text-center md:px-48 px-8 mb-12">
         <h1 className="font-raleway md:text-5xl text-3xl text-black mt-2 font-bold">
-        Frequently Asked Questions
+          Frequently Asked Questions
         </h1>
       </div>
 
@@ -82,7 +106,6 @@ const FAQs = () => {
           </div>
         ))}
       </div>
-    
     </div>
   );
 };

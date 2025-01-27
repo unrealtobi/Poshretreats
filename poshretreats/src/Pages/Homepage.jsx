@@ -307,7 +307,7 @@ const HomePage = () => {
             and instead champions the spirit of action.
           </p>
           <a
-            href="/contact-us"
+            href="/contact-poshretreats"
             className="relative  w-32 md:mt-8 mt-3 bg-customGreen md:text-sm  text-xs font-roboto font-medium text-white px-6 md:py-3 py-2.5 rounded-md shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen group hover:bg- transition-colors duration-300 ease-in-out"
           >
             <span className="relative z-10">Learn More</span>

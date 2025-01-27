@@ -23,7 +23,9 @@ const Footer = () => {
 
         {/* Button */}
         <a
-          href=""
+          href="https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new"
+          target="_blank" // Opens the link in a new window or tab
+          rel="noopener noreferrer" // Improves security by preventing access to the window object
           className="mt-6 px-6 py-3 bg-white text-customGreen font-medium text-sm rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
         >
           Book a Trip

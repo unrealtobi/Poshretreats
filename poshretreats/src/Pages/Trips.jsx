@@ -65,7 +65,7 @@ const Trips = () => {
           className="relative rounded-xl  bg-cover bg-center translate-y-20 md:translate-y-0 bg-no-repeat h-[471px] md:h-screen"
           style={{
             backgroundImage:
-              "url('https://res.cloudinary.com/dtaqusjav/image/upload/v1737483413/image_12_1_kmexeu.svg')",
+              "url('/tripbg.png')",
           }}
         >
           <div className="relative flex items-center justify-center h-full text-white text-center">
@@ -84,7 +84,7 @@ const Trips = () => {
 
             {/* Image (starts animation 2s later) */}
             <img
-              src="https://res.cloudinary.com/dtaqusjav/image/upload/v1737483401/image_11_jsva9a.svg"
+              src="/girl.svg"
               alt="Human Silhouette"
               className="
             absolute

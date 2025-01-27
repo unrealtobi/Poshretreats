@@ -8,6 +8,49 @@ import { useRouter } from "next/navigation"; // (Optional) If you plan to naviga
  * Helper function to highlight search matches within a text string.
  * Wraps matching text in a <mark> tag.
  */
+export async function generateMetadata({ posts }) {
+  if (!posts || posts.length === 0) {
+    return {
+      title: "Blogs - Posh Retreats",
+      description: "Explore inspiring travel stories and tips from Posh Retreats.",
+    };
+  }
+
+  // Fetch the first post as a representative blog
+  const firstPost = posts[0];
+
+  const imageUrl = firstPost.mainImage?.asset?.url || "";
+  const description =
+    firstPost.description.length > 160
+      ? `${firstPost.description.slice(0, 157)}...`
+      : firstPost.description;
+
+  return {
+    title: `${firstPost.title} - Posh Retreats`,
+    description: description,
+    openGraph: {
+      title: `${firstPost.title} - Posh Retreats`,
+      description: description,
+      url: `https://poshretreatsuk.vercel.app/blog/${firstPost.slug.current}`,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: firstPost.title,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${firstPost.title} - Posh Retreats`,
+      description: description,
+      images: [imageUrl],
+    },
+  };
+}
+
 function highlightText(text = "", query = "") {
   if (!query) return text;
   const regex = new RegExp(`(${query})`, "gi");
@@ -34,7 +77,7 @@ export default function HomeContent({ posts, uniqueTags }) {
   const handleCardClick = (slug) => {
     router.push(`/blog/${slug}`);
   };
-  
+
   // ----- FILTER BY TAG + SEARCH -----
   useEffect(() => {
     // We filter posts by (activeTag) AND (searchQuery in title/description/tag)
@@ -73,7 +116,6 @@ export default function HomeContent({ posts, uniqueTags }) {
           .filter((title) => title.toLowerCase().includes(queryLower))
       ),
     ];
-   
 
     const matchedTags = [
       ...new Set(
@@ -151,100 +193,116 @@ export default function HomeContent({ posts, uniqueTags }) {
       </div>
 
       {/* Top Blogs Section */}
-      <section className="mt-32">
-        <h2 className="text-3xl font-semibold font-raleway text-black mb-12 text-center">
-          Top Blogs
-        </h2>
+      {posts.length > 0 ? (
+        <section className="mt-32">
+          <h2 className="text-3xl font-semibold font-raleway text-black mb-12 text-center">
+            Top Blogs
+          </h2>
 
-        <div className="grid grid-cols-1  md:px-16 md:grid-cols-[2fr_1fr] gap-2">
-          {/* Featured Blog (first post) */}
-          <div
-            className="md:w-[628px]  w-full transition-transform duration-300 hover:scale-105 cursor-pointer"
-            onClick={() => handleCardClick(posts[0].slug.current)}
-          >
-            {posts[0]?.mainImage?.asset?.url && (
-              <div className="relative">
-                <Image
-                  src={posts[0].mainImage.asset.url}
-                  alt={posts[0].title}
-                  width={600}
-                  height={400}
-                  className="w-full md:h-[398px] sm:w-[428px] h-[220px] rounded-lg object-cover"
-                />
-                {posts[0].tag && (
-                  <span className="absolute top-4 left-4 md:text-base text-sm text-white font-roboto bg-[rgba(255,255,255,0.2)] px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
-                    {highlightText(posts[0].tag, searchQuery)}
-                  </span>
-                )}
+          <div className="grid grid-cols-1 md:px-16 md:grid-cols-[2fr_1fr] gap-2">
+            <div
+              className="md:w-[628px] w-full transition-transform duration-300 hover:scale-105 cursor-pointer"
+              onClick={() => handleCardClick(posts[0].slug.current)}
+            >
+              {posts[0]?.mainImage?.asset?.url && (
+                <div className="relative">
+                  <Image
+                    src={posts[0].mainImage.asset.url}
+                    alt={posts[0].title}
+                    width={600}
+                    height={400}
+                    className="w-full md:h-[398px] sm:w-[428px] h-[220px] rounded-lg object-cover"
+                  />
+                  {posts[0].tag && (
+                    <span className="absolute top-4 left-4 md:text-base text-sm text-white font-roboto bg-[rgba(255,255,255,0.2)] px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
+                      {highlightText(posts[0].tag, searchQuery)}
+                    </span>
+                  )}
+                </div>
+              )}
+              <div className="py-4">
+                <p className="text-sm text-gray-600 font-normal font-roboto mb-2">
+                  {new Date(posts[0]?.publishedAt)
+                    .toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })
+                    .replace(/, /g, " ")}{" "}
+                  • {posts[0]?.readTime}
+                </p>
+                <h3 className="text-2xl font-semibold font-raleway text-gray-900 mb-1">
+                  {highlightText(posts[0]?.title, searchQuery)}
+                </h3>
+                <p className="text-gray-700 font-roboto text-base">
+                  {highlightText(
+                    posts[0]?.description.length > 100
+                      ? `${posts[0].description.slice(0, 180)}...`
+                      : posts[0]?.description,
+                    searchQuery
+                  )}
+                </p>
               </div>
-            )}
-            <div className="py-4">
-              <p className="text-sm text-gray-600 font-normal font-roboto mb-2">
-                {new Date(posts[0]?.publishedAt).toLocaleDateString()} •{" "}
-                {posts[0]?.readTime}
-              </p>
-              <h3 className="text-2xl font-semibold font-raleway text-gray-900 mb-1">
-                {/* highlight title */}
-                {highlightText(posts[0]?.title, searchQuery)}
-              </h3>
-              <p className="text-gray-700 font-roboto text-base">
-                {/* highlight description */}
-                {highlightText(
-                  posts[0]?.description.length > 100
-                    ? `${posts[0].description.slice(0, 180)}...`
-                    : posts[0]?.description,
-                  searchQuery
-                )}
-              </p>
+            </div>
+
+            <div className="space-y-10">
+              {posts.slice(1, 4).map((post) => (
+                <div
+                  key={post.slug.current}
+                  className="flex md:flex-row flex-col md:w-[658px] rounded-lg md:h-[150px] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  onClick={() => handleCardClick(post.slug.current)}
+                >
+                  {post.mainImage?.asset?.url && (
+                    <div className="relative md:w-1/3">
+                      <Image
+                        src={post.mainImage.asset.url}
+                        alt={post.title}
+                        width={200}
+                        height={150}
+                        className="w-full rounded-lg md:h-full h-[220px] sm:w-[428px] object-cover"
+                      />
+                      {post.tag && (
+                        <span className="absolute top-2 left-2 bg-[rgba(0,0,0,0.4)] text-white text-xs px-3 py-1 rounded-full backdrop-blur-md font-medium shadow-lg">
+                          {highlightText(post.tag, searchQuery)}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                  <div className="md:ml-2 py-2 md:py-0 md:w-2/3">
+                    <p className="md:text-xs text-sm text-gray-600 mb-1">
+                      {new Date(post?.publishedAt)
+                        .toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })
+                        .replace(/, /g, " ")}{" "}
+                      • {post?.readTime}
+                    </p>
+                    <h4 className="md:text-xl text-2xl font-semibold font-raleway text-gray-900 mb-1">
+                      {highlightText(post.title, searchQuery)}
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      {highlightText(
+                        post.description.length > 300
+                          ? `${post.description.slice(0, 300)}...`
+                          : post.description,
+                        searchQuery
+                      )}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          {/* Stacked Blogs (next three posts) */}
-          <div className="space-y-10">
-            {posts.slice(1, 4).map((post) => (
-              <div
-                key={post.slug.current}
-                className="flex md:flex-row flex-col md:w-[658px] rounded-lg md:h-[150px] transition-transform duration-300 hover:scale-105 cursor-pointer"
-                onClick={() => handleCardClick(post.slug.current)}
-              >
-                {post.mainImage?.asset?.url && (
-                  <div className="relative md:w-1/3">
-                    <Image
-                      src={post.mainImage.asset.url}
-                      alt={post.title}
-                      width={200}
-                      height={150}
-                      className="w-full rounded-lg md:h-full h-[220px] sm:w-[428px] object-cover"
-                    />
-                    {post.tag && (
-                      <span className="absolute top-2 left-2 bg-[rgba(0,0,0,0.4)] text-white text-xs px-3 py-1 rounded-full backdrop-blur-md font-medium shadow-lg">
-                        {highlightText(post.tag, searchQuery)}
-                      </span>
-                    )}
-                  </div>
-                )}
-                <div className="md:ml-2 py-2 md:py-0 md:w-2/3">
-                  <p className="md:text-xs text-sm text-gray-600 mb-1">
-                    {new Date(post?.publishedAt).toLocaleDateString()} •{" "}
-                    {post?.readTime}
-                  </p>
-                  <h4 className="md:text-xl text-2xl font-semibold font-raleway text-gray-900 mb-1">
-                    {highlightText(post.title, searchQuery)}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {highlightText(
-                      post.description.length > 300
-                        ? `${post.description.slice(0, 300)}...`
-                        : post.description,
-                      searchQuery
-                    )}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        </section>
+      ) : (
+        <div className="text-center mt-32">
+          <h2 className="text-3xl font-semibold font-raleway text-gray-700">
+            No blogs yet. Check back later!
+          </h2>
         </div>
-      </section>
+      )}
 
       {/* Tags Section */}
       <section className="mt-20">
@@ -312,7 +370,6 @@ export default function HomeContent({ posts, uniqueTags }) {
           ))}
         </div>
       </section>
-      
     </div>
   );
 }

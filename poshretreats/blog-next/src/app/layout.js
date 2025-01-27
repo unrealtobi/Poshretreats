@@ -19,7 +19,13 @@ const raleway = Raleway({
   weight: ["100", "300", "400", "500", "700", "900"],
   style: ["normal", "italic"],
 });
-
+export const metadata = {
+  icons: {
+    icon: "/logo.svg", // Path to your favicon in the `public` directory
+    apple: "/logo.svg", // Optional: Apple touch icon
+    shortcut: "/logo.svg", // Optional: Shortcut icon
+  },
+};
 
 export default function RootLayout({ children }) {
   return (

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
 
   if (!blogPost) {
     return {
-      title: 'Post not found',
+      title: "Post not found",
     };
   }
 
@@ -51,10 +51,10 @@ export async function generateMetadata({ params }) {
           url: image,
         },
       ],
-      type: 'article',
+      type: "article",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: blogPost.title,
       description: blogPost.description,
       images: [image],
@@ -126,161 +126,179 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <>
-    
-    <div className="px-4 md:px-12 sm:px-8 md:py-32 py-32 bg-customBg min-h-screen">
-      {/* Blog Header */}
-      <div className="mb-12 flex md:flex-row flex-col items-center">
-        {blogPost.mainImage?.asset && (
-          <div className="relative md:w-[700px] w-full">
-            <Image
-              src={urlFor(blogPost.mainImage.asset).url()}
-              alt={blogPost.title}
-              width={1200}
-              height={600}
-              className="w-full md:h-[500px] h-[320px] sm:w-[428px] object-cover rounded-lg"
+      <div className="px-4 md:px-12 sm:px-8 md:py-32 py-32 bg-customBg min-h-screen">
+        {/* Blog Header */}
+        <div className="mb-12 flex md:flex-row flex-col items-center">
+          {blogPost.mainImage?.asset && (
+            <div className="relative md:w-[700px] w-full">
+              <Image
+                src={urlFor(blogPost.mainImage.asset).url()}
+                alt={blogPost.title}
+                width={1200}
+                height={600}
+                className="w-full md:h-[500px] h-[320px] sm:w-[428px] object-cover rounded-lg"
+              />
+            </div>
+          )}
+          <div className="md:px-12 flex-1 mt-4 md:mt-0">
+            <p className="text-sm text-gray-600 font-roboto">
+              {new Date(blogPost.publishedAt)
+                .toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })
+                .replace(/, /g, " ")}{" "}
+              • {blogPost.readTime}
+            </p>
+            <h1 className="md:text-5xl text-black text-2xl font-semibold font-raleway mt-2 md:mt-6">
+              {blogPost.title}
+            </h1>
+            <p className="text-gray-700 text-md font-roboto mt-4">
+              {blogPost.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Blog Body + Sidebar */}
+        <div className="md:flex md:gap-24">
+          {/* Main Blog Body */}
+          <div className="prose md:w-[890px] w-full text-black">
+            <PortableText
+              value={blogPost.body}
+              components={{
+                // Custom rendering for images
+                types: {
+                  image: ({ value }) => {
+                    if (!value?.asset) return null;
+                    return (
+                      <div className="my-6">
+                        <Image
+                          src={urlFor(value.asset).url()}
+                          alt={value.alt || "Image"}
+                          width={550}
+                          height={500}
+                          className="md:w-[890px] object-cover h-[280px] sm:w-[428px] rounded-xl md:h-[600px]"
+                        />
+                      </div>
+                    );
+                  },
+                },
+                // Custom rendering for marks (e.g., links)
+                marks: {
+                  link: ({ children, value }) => (
+                    <a
+                      href={value.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 underline"
+                    >
+                      {children}
+                    </a>
+                  ),
+                },
+                // Optional: custom block styles
+                block: {
+                  h1: ({ children }) => (
+                    <h1 className="text-4xl font-bold text-black my-6">
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-3xl font-semibold text-black my-4">
+                      {children}
+                    </h2>
+                  ),
+                  blockquote: ({ children }) => (
+                    <blockquote className="pl-4 border-l-4 border-gray-300 italic text-gray-600 my-4">
+                      {children}
+                    </blockquote>
+                  ),
+                },
+              }}
             />
           </div>
-        )}
-        <div className="md:px-12 flex-1 mt-4 md:mt-0">
-          <p className="text-sm text-gray-600 font-roboto">
-            {new Date(blogPost.publishedAt).toLocaleDateString()} •{" "}
-            {blogPost.readTime}
-          </p>
-          <h1 className="md:text-5xl text-2xl font-semibold font-raleway mt-2 md:mt-6">
-            {blogPost.title}
-          </h1>
-          <p className="text-gray-700 text-md font-roboto mt-4">
-            {blogPost.description}
-          </p>
-        </div>
-      </div>
 
-      {/* Blog Body + Sidebar */}
-      <div className="md:flex md:gap-24">
-        {/* Main Blog Body */}
-        <div className="prose md:w-[890px] w-full text-gray-800">
-          <PortableText
-            value={blogPost.body}
-            components={{
-              // Custom rendering for images
-              types: {
-                image: ({ value }) => {
-                  if (!value?.asset) return null;
-                  return (
-                    <div className="my-6">
-                      <Image
-                        src={urlFor(value.asset).url()}
-                        alt={value.alt || "Image"}
-                        width={550}
-                        height={500}
-                        className="md:w-[890px] object-cover h-[280px] sm:w-[428px] rounded-xl md:h-[600px]"
-                      />
-                    </div>
-                  );
-                },
-              },
-              // Custom rendering for marks (e.g., links)
-              marks: {
-                link: ({ children, value }) => (
-                  <a
-                    href={value.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline"
+          {/* Most Popular (Sticky Sidebar) */}
+          {otherBlogs.length > 2 && (
+            <div className="mt-16 bg-rose-50 md:block hidden p-6 md:w-[420px] py-12 h-full rounded-lg sticky top-24">
+              <h2 className="text-2xl text-center font-raleway font-medium mb-6">
+                Most Popular
+              </h2>
+              <div className="space-y-4">
+                {otherBlogs.map((blog) => (
+                  <div
+                    key={blog.slug.current}
+                    className="border-b border-pink-300 pb-4"
                   >
-                    {children}
-                  </a>
-                ),
-              },
-              // Optional: custom block styles
-              block: {
-                h1: ({ children }) => (
-                  <h1 className="text-4xl font-bold my-6">{children}</h1>
-                ),
-                h2: ({ children }) => (
-                  <h2 className="text-3xl font-semibold my-4">{children}</h2>
-                ),
-                blockquote: ({ children }) => (
-                  <blockquote className="pl-4 border-l-4 border-gray-300 italic text-gray-600 my-4">
-                    {children}
-                  </blockquote>
-                ),
-              },
-            }}
-          />
-        </div>
-
-        {/* Most Popular (Sticky Sidebar) */}
-        <div className="mt-16 bg-rose-50 md:block hidden p-6 md:w-[420px] py-12 h-full rounded-lg sticky top-24">
-          <h2 className="text-2xl text-center font-raleway font-medium mb-6">
-            Most Popular
-          </h2>
-          <div className="space-y-4">
-            {otherBlogs.map((blog) => (
-              <div
-                key={blog.slug.current}
-                className="border-b border-pink-300 pb-4"
-              >
-                <p className="text-xs text-gray-600">
-                  {new Date(blog.publishedAt).toLocaleDateString()} •{" "}
-                  {blog.readTime}
-                </p>
-                <Link href={`/blog/${blog.slug.current}`}>
-                  <h3 className="text-lg font-roboto font-medium text-gray-900">
-                    {blog.title}
-                  </h3>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* More Blogs Section */}
-      <section className="mt-24">
-        <h2 className="text-3xl font-semibold font-raleway text-black mb-8 text-center">
-          More Blogs
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {moreBlogs.map((blog) => (
-            <Link key={blog.slug.current} href={`/blog/${blog.slug.current}`}>
-              <div className="bg-transparent overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <div className="relative">
-                  {blog.mainImage?.asset?.url && (
-                    <Image
-                      src={blog.mainImage.asset.url}
-                      alt={blog.title}
-                      width={400}
-                      height={250}
-                      className="w-full h-[280px] rounded-lg object-cover"
-                    />
-                  )}
-                  {blog.tag && (
-                    <span className="absolute top-4 left-4 bg-[rgba(0,0,0,0.4)] text-white text-sm px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
-                      {blog.tag}
-                    </span>
-                  )}
-                </div>
-                <div className="py-3">
-                  <p className="text-sm text-gray-500 mb-2">
-                    {new Date(blog.publishedAt).toLocaleDateString()} •{" "}
-                    {blog.readTime}
-                  </p>
-                  <h3 className="text-2xl font-semibold font-raleway text-gray-900 mb-1">
-                    {blog.title}
-                  </h3>
-                  {blog.description && (
-                    <p className="text-sm text-gray-600 mt-2">
-                      {blog.description.slice(0, 100)}...
+                    <p className="text-xs text-gray-600">
+                      {new Date(blog.publishedAt).toLocaleDateString()} •{" "}
+                      {blog.readTime}
                     </p>
-                  )}
-                </div>
+                    <Link href={`/blog/${blog.slug.current}`}>
+                      <h3 className="text-lg font-roboto font-medium text-gray-900">
+                        {blog.title}
+                      </h3>
+                    </Link>
+                  </div>
+                ))}
               </div>
-            </Link>
-          ))}
+            </div>
+          )}
         </div>
-      </section>
-    </div>
+
+        {/* More Blogs Section */}
+
+        {/* More Blogs Section */}
+        {moreBlogs.length > 2 && (
+          <section className="mt-24">
+            <h2 className="text-3xl font-semibold font-raleway text-black mb-8 text-center">
+              More Blogs
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {moreBlogs.map((blog) => (
+                <Link
+                  key={blog.slug.current}
+                  href={`/blog/${blog.slug.current}`}
+                >
+                  <div className="bg-transparent overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer">
+                    <div className="relative">
+                      {blog.mainImage?.asset?.url && (
+                        <Image
+                          src={blog.mainImage.asset.url}
+                          alt={blog.title}
+                          width={400}
+                          height={250}
+                          className="w-full h-[280px] rounded-lg object-cover"
+                        />
+                      )}
+                      {blog.tag && (
+                        <span className="absolute top-4 left-4 bg-[rgba(0,0,0,0.4)] text-white text-sm px-4 py-1 rounded-full backdrop-blur-md shadow-lg">
+                          {blog.tag}
+                        </span>
+                      )}
+                    </div>
+                    <div className="py-3">
+                      <p className="text-sm text-gray-500 mb-2">
+                        {new Date(blog.publishedAt).toLocaleDateString()} •{" "}
+                        {blog.readTime}
+                      </p>
+                      <h3 className="text-2xl font-semibold font-raleway text-gray-900 mb-1">
+                        {blog.title}
+                      </h3>
+                      {blog.description && (
+                        <p className="text-sm text-gray-600 mt-2">
+                          {blog.description.slice(0, 100)}...
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
     </>
   );
 }

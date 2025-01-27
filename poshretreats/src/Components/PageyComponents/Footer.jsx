@@ -22,12 +22,18 @@ const Footer = () => {
         </p>
 
         {/* Button */}
-        <a
-          href=""
+        <button
+          onClick={() =>
+            window.open(
+              "https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
           className="mt-6 px-6 py-3 bg-white text-customGreen font-medium text-sm rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
         >
           Book a Trip
-        </a>
+        </button>
 
         {/* Footer Text */}
         <h1 className="md:absolute md:bottom-8 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">

@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { LuMenu } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import client from "../../sanityClient";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [dealCount, setDealCount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation(); // Get the current location
 
@@ -19,7 +19,19 @@ const Navbar = () => {
       mobileMenu.classList.add("translate-x-full");
     }
   };
+  useEffect(() => {
+    const fetchDealCount = async () => {
+      try {
+        const query = `count(*[_type == "deal"])`;
+        const count = await client.fetch(query);
+        setDealCount(count);
+      } catch (error) {
+        console.error("Error fetching deal count:", error);
+      }
+    };
 
+    fetchDealCount();
+  }, []);
   const isActiveLink = (path) => location.pathname === path;
 
   return (
@@ -92,10 +104,11 @@ const Navbar = () => {
               }`}
             >
               Deals
-              {/* Badge */}
-              <span className="absolute -top-4 -right-6 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
-                10+
-              </span>
+              {dealCount > 0 && (
+                <span className="absolute -top-2 -right-6 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                  {dealCount}
+                </span>
+              )}
             </a>
           </li>
 
@@ -203,9 +216,11 @@ const Navbar = () => {
           >
             Deals
             {/* Badge */}
-            <span className="absolute -top-1 left-10 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
-              10+
-            </span>
+            {dealCount > 0 && (
+              <span className="absolute -top-2 -right-6 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                {dealCount}
+              </span>
+            )}
           </a>
 
           <a

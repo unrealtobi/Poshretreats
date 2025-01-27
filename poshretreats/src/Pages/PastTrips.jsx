@@ -88,7 +88,7 @@ const PastTrips = () => {
     {
       id: 3,
       date: "26/12/2023",
-      title: "Private Trip - Bali",
+      title: "P. Trip - Bali",
       images: [
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737459700/7414a882-414e-4598-968e-14d3225f7f02_icaqd6.jpg",
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737459701/542581b8-9bd9-438f-ab3b-465a97c210d4_y0bpzs.jpg",
@@ -119,7 +119,7 @@ const PastTrips = () => {
     {
       id: 6,
       date: "30/12/2019",
-      title: "Private Trip- Morocco",
+      title: "P. Trip- Morocco",
       images: [
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737461900/FDBBA81A-7002-42B1-9B25-AF9C861F39BD_oxc09w.jpg",
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737461900/E85D1646-BCCD-4F8A-915E-180D354B8F5A_arvxur.jpg",
@@ -378,7 +378,7 @@ const PastTrips = () => {
                   {/* Trip info */}
                   <div className="p-2 mt-auto text-left">
                     <p className="text-xs font-roboto text-gray-800">{date}</p>
-                    <p className="font-pacifico text-lg text-gray-800 mt-1">
+                    <p className="font-pacifico text-base md:text-lg text-gray-800 mt-1">
                       {title}
                     </p>
                   </div>

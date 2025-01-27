@@ -96,11 +96,10 @@ const Navbar = () => {
           </li>
           <li className="relative">
             <a
-              onClick={() => navigate("/deals")}
-              className={`relative text-base font-roboto cursor-pointer font-semibold flex items-center text-gray-800 hover:text-customGreen animate-bounce ${
-                isActiveLink("/deals")
-                  ? "text-customGreen animate-text-glow"
-                  : "hover:animate-text-glow"
+              href="https://poshretreatsuk.vercel.app/deals" // Update to match the domain and route for deals
+              target="_self" // Opens in the same tab
+              className={`relative text-base font-roboto cursor-pointer font-semibold flex items-center text-gray-800 hover:text-customGreen ${
+                location.pathname.includes("/deals") ? "text-customGreen" : ""
               }`}
             >
               Deals
@@ -206,18 +205,16 @@ const Navbar = () => {
             Trips
           </a>
           <a
-            onClick={() => {
-              navigate("/deals");
-              closeMobileMenu(); // Close mobile menu
-            }}
+            href="https://poshretreatsuk.vercel.app/deals" // Update to match the domain and route for deals
+            target="_self" // Opens in the same tab
             className={`relative text-base font-roboto font-medium w-full py-3 border-b flex items-center animate-bounce ${
-              isActiveLink("/deals") ? "text-customGreen" : "text-gray-700"
+              location.pathname.includes("/deals") ? "text-customGreen" : ""
             }`}
           >
             Deals
             {/* Badge */}
             {dealCount > 0 && (
-              <span className="absolute -top-2 -right-6 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+              <span className="absolute -top-2 left-9 bg-red-500 text-white text-xs font-medium rounded-full px-2 py-1">
                 {dealCount}
               </span>
             )}

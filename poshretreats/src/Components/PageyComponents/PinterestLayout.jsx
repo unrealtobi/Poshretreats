@@ -17,7 +17,7 @@ const images = [
     id: 3,
     src: "https://res.cloudinary.com/dtaqusjav/image/upload/v1732285983/IMG_7335_wrqbsz.jpg",
     alt: "Image 3",
-    tags: ["Jet Ski Rides"],
+    tags: ["Para Sailing"],
   },
   {
     id: 4,

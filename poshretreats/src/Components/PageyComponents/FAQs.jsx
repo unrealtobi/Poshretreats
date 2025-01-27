@@ -39,7 +39,7 @@ const FAQs = () => {
 
   return (
     <div className="bg-customBg -translate-y-10 py-12 pt-16">
-      <div className="text-center md:px-48 px-8 mb-12">
+      <div className="text-center md:px-48 px-6 mb-12">
         <h2 className="font-roboto text-gray-500 text-lg">FAQs</h2>
         <h1 className="font-raleway text-3xl text-black mt-2 font-semibold">
           Your Travel Questions,{" "}
@@ -83,7 +83,7 @@ const FAQs = () => {
         {/* Reusable Button */}
         <a
           href="mailto:help@poshretreats.co.uk?subject=Question%20about%20Posh%20Retreats&body=Hi%20Posh%20Retreats%2C%0A%0AI%20have%20a%20question%20regarding%20your%20services%20and%20trips.%20Could%20you%20please%20help%20me%20with%20the%20following%3A%0A%0A[Write%20your%20question%20here]%0A%0AThank%20you!%0A%0ABest%20regards%2C%0A[Your%20Name]"
-          className="relative sm:px-12 sm:py-4 md:px-8 md:mt-12 mt-6  bg-customGreen md:text-sm text-sm font-roboto font-medium text-white px-10 md:py-3 py-2 rounded-md shadow-md hover:shadow-lg overflow-hidden group transition-colors duration-300 ease-in-out"
+          className="relative sm:px-12 sm:py-4 md:px-8 md:mt-12 mt-6  bg-customGreen md:text-sm text-sm font-roboto font-medium text-white px-8 md:py-3 py-3 rounded-md shadow-md hover:shadow-lg overflow-hidden group transition-colors duration-300 ease-in-out"
         >
           <span className="relative z-10 whitespace-nowrap">
             Ask a Question

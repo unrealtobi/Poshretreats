@@ -1,9 +1,16 @@
 {
-    "rewrites": [
-      {
-        "source": "/:path*", 
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "source": "/blogs/:path*",
+      "destination": "https://poshretreatsuk.vercel.app/blogs/:path*"
+    },
+    {
+      "source": "/deals/:path*",
+      "destination": "https://poshretreatsuk.vercel.app/deals/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}

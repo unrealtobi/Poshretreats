@@ -21,9 +21,9 @@ const raleway = Raleway({
 });
 export const metadata = {
   icons: {
-    icon: "/logo.svg", // Path to your favicon in the `public` directory
-    apple: "/logo.svg", // Optional: Apple touch icon
-    shortcut: "/logo.svg", // Optional: Shortcut icon
+    icon: "/Logo.svg", // Path to your favicon in the `public` directory
+    apple: "/Logo.svg", // Optional: Apple touch icon
+    shortcut: "/Logo.svg", // Optional: Shortcut icon
   },
 };
 

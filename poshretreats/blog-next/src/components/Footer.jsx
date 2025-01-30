@@ -70,6 +70,14 @@ const Footer = () => {
             <RiFacebookFill />
           </a>
         </div>
+        <div className="mt-7 text-sm translate-y-48  text-gray-300">
+          <a
+            href="https://poshretreats.vercel.app/termsandconditions"
+            className="underline hover:text-white transition duration-300"
+          >
+            Terms & Conditions
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
         <div className="mt-7 text-sm translate-y-48  text-gray-300">
           <a
-            href="/terms-and-conditions"
+            href="/termsandconditions"
             className="underline hover:text-white transition duration-300"
           >
             Terms & Conditions

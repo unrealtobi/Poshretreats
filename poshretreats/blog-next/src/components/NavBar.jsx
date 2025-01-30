@@ -8,7 +8,7 @@ import Image from "next/image";
 import client from "@/sanityClient"; // Sanity client to fetch the deal count
 
 // The domain for your React app
-const REACT_APP_DOMAIN = "https://poshretreats.vercel.app";
+const REACT_APP_DOMAIN = "https://www.poshretreats.co.uk/";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

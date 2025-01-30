@@ -123,14 +123,14 @@ const Footer = () => {
         {/* Terms & Conditions Link */}
         <div className="mt-7 text-sm md:translate-y-44 translate-y-36 sm:translate-y-28 text-gray-300">
           <a
-            href="/termsandconditions"
+            href="https://www.poshretreats.co.uk/termsandconditions"
             className="underline hover:text-white transition duration-300"
           >
             Terms & Conditions
           </a>
           <span className="mx-2">|</span>
           <a
-            href="/privacy-policy"
+            href="https://www.poshretreats.co.uk/privacy-policy"
             className="underline hover:text-white transition duration-300"
           >
             Privacy Policy

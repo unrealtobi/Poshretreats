@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/blogs/:path*",
-      "destination": "https://poshretreatsuk.vercel.app/blogs/:path*"
+      "destination": "https://poshretreatsuk.vercel.app/:path*"
     },
     {
       "source": "/deals/:path*",

@@ -3,7 +3,8 @@ import { LuMenu } from "react-icons/lu";
 import { useNavigate, useLocation } from "react-router-dom";
 import client from "../../sanityClient";
 
-
+// The domain for your Next.js app
+const NEXT_DOMAIN = "https://explore.poshretreats.co.uk";
 
 const Navbar = () => {
   const [dealCount, setDealCount] = useState(0);
@@ -83,7 +84,7 @@ const Navbar = () => {
           <li className="relative">
             {/* External link to Next.js domain for /deals */}
             <a
-              href={`https://deals.poshretreats.co.uk/`}
+              href={`${NEXT_DOMAIN}/deals`}
               target="_self"
               className={`relative text-base font-roboto cursor-pointer font-semibold flex items-center ${
                 // We usually cannot "isActiveLink" an external domain
@@ -104,7 +105,7 @@ const Navbar = () => {
           <li>
             {/* External link to Next.js domain for /blogs */}
             <a
-              href="https://blog.poshretreats.co.uk/"
+              href={`${NEXT_DOMAIN}/`}
               target="_self"
               className={`text-base font-roboto cursor-pointer font-semibold ${
                 location.pathname.includes("/blogs")
@@ -205,7 +206,7 @@ const Navbar = () => {
 
           {/* External link to Next.js domain for /deals */}
           <a
-            href={`https://deals.poshretreats.co.uk/`}
+            href={`${NEXT_DOMAIN}/deals`}
             target="_self"
             className={`relative text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
               location.pathname.includes("/deals") ? "text-customGreen" : ""
@@ -222,7 +223,7 @@ const Navbar = () => {
 
           {/* External link to Next.js domain for /blogs */}
           <a
-            href={`https://blog.poshretreats.co.uk/`}
+            href={`${NEXT_DOMAIN}/`}
             target="_self"
             className={`text-base font-roboto font-medium w-full py-3 border-b flex items-center ${
               location.pathname.includes("/blogs")

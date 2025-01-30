@@ -49,7 +49,7 @@ const Blogs = () => {
 
   // Navigate to the Next.js blog detail page
   const handleLearnMore = (slug) => {
-    window.location.href = `https://blog.poshretreats.co.uk/blog/${slug}`;
+    window.location.href = `https://explore.poshretreats.co.uk/blog/${slug}`;
   };
 
   return (
@@ -133,7 +133,7 @@ const Blogs = () => {
       </div>
 
       {/* View More Blogs Button */}
-      <ReusableButton label="View More Blogs" route="https://poshretreatsuk.vercel.app/" />
+      <ReusableButton label="View More Blogs" route="https://explore.poshretreats.co.uk/" />
     </div>
   );
 };

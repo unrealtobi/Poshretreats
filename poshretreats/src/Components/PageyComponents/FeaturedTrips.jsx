@@ -41,7 +41,7 @@ const FeaturedTrips = () => {
   // A helper function to handle the click
   const handleLearnMore = (slug) => {
     // Navigate to your Next.js deals detail page
-    window.location.href = `https://deals.poshretreats.co.uk/deals/${slug}`;
+    window.location.href = `https://explore.poshretreats.co.uk/deals/${slug}`;
   };
 
   return (
@@ -132,7 +132,7 @@ const FeaturedTrips = () => {
         ))}
       </div>
 
-      <ReusableButton label="Explore More Deals" route="https://poshretreatsuk.vercel.app/deals" />
+      <ReusableButton label="Explore More Deals" route="https://explore.poshretreats.co.uk/deals" />
     </div>
   );
 };

@@ -12,14 +12,14 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/:path*",
-        has: [{ type: "host", value: "blog.poshretreats.co.uk" }],
-        destination: "/:path*", // Blog stays at "/"
+        source: "/deals/:path*", // Route `/deals/*` correctly under Deals
+        has: [{ type: "host", value: "deals.poshretreats.co.uk" }],
+        destination: "/deals/:path*",
       },
       {
-        source: "/:path*",
-        has: [{ type: "host", value: "deals.poshretreats.co.uk" }],
-        destination: "/deals/:path*", // Deals at "/deals"
+        source: "/:path*", // Ensure the blog subdomain works properly
+        has: [{ type: "host", value: "blog.poshretreats.co.uk" }],
+        destination: "/:path*",
       },
     ];
   },

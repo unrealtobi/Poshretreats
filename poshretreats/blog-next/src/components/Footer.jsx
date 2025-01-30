@@ -3,6 +3,7 @@ import { RiFacebookFill } from "react-icons/ri";
 import { FaTiktok } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaTelegram } from "react-icons/fa6";
 import Image from "next/image";
 const Footer = () => {
   return (
@@ -18,53 +19,51 @@ const Footer = () => {
         </h2>
 
         {/* Description */}
-        <p className="absolute md:flex text-center px-8 md:px-0 text-gray-200 text-sm md:text-sm sm:bottom-36 md:bottom-24 bottom-28 font-roboto">
+        <p className="absolute md:flex text-center px-8 md:px-0 text-gray-200 text-sm md:text-sm sm:bottom-36  md:bottom-24 bottom-28 font-roboto">
           Have questions or ready to book? Reach out to plan your next
           unforgettable adventure.
           <br /> Posh Retreats is a member of Experience It Now Travel who are
-          an Accredited Body Member of Hays Travel Limited,{" "}
-          <span className="font-semibold">ATOL 5534</span>.
+          an Accredited Body Member of Hays Travel Limited,ATOL 5534
         </p>
 
         {/* Logos (ABTA & ATOL) */}
         <div className="absolute flex md:bottom-10 bottom-16 gap-x-6">
-          <Image
-            src="/abta.png"
-            alt="ABTA Travel Logo"
-            width={100}
-            height={40}
-            className="h-10 md:h-12 bg-customBg py-2 px-2 md:w-24 rounded-md cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://www.abta.com/abta-member-search/results?search=P7133",
-                "_blank",
-                "noopener,noreferrer"
-              )
-            }
-          />
-          <Image
-            src="/atol.png"
-            alt="ATOL Protection Logo"
-            width={100}
-            height={40}
-            className="h-10 md:h-12 bg-customBg py-2 md:w-20 px-4 rounded-md cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://www.caa.co.uk/atol-protection/check-an-atol/search-atol-holders/#",
-                "_blank",
-                "noopener,noreferrer"
-              )
-            }
-          />
+          <a
+            href="https://www.abta.com/abta-member-search/results?search=P7133"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/abta.png"
+              alt="ABTA Travel Logo"
+              width={100}
+              height={40}
+              className="h-10 md:h-12 bg-customBg py-2 px-2 md:w-24 rounded-md cursor-pointer"
+            />
+          </a>
+
+          <a
+            href="https://www.caa.co.uk/atol-protection/check-an-atol/search-atol-holders/#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/atol.png"
+              alt="ATOL Protection Logo"
+              width={100}
+              height={40}
+              className="h-10 md:h-12 bg-customBg py-2 md:w-20 px-4 rounded-md cursor-pointer"
+            />
+          </a>
         </div>
 
         {/* Footer Text */}
-        <h1 className="md:absolute md:bottom-12 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
+        <h1 className="md:absolute md:bottom-52 md:left-0 md:right-0 absolute bottom-72 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
           POSH RETREATS
         </h1>
 
         {/* Social Icons */}
-        <div className="md:absolute md:bottom-4 bottom-6 absolute flex items-center gap-4">
+        <div className="md:absolute md:bottom-0 bottom-6 absolute flex  items-center gap-4">
           <a
             href="https://www.tiktok.com/@posh.retreats?_t=8jfaklTKkdc&_r=1"
             aria-label="TikTok"

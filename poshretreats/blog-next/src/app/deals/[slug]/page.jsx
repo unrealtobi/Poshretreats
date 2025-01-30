@@ -227,7 +227,7 @@ export default async function DealPage({ params }) {
           <div className="flex items-center justify-between">
             {/* Price */}
             <p className="text-2xl font-bold font-roboto text-gray-900">
-              {deal.price}{" "}
+              From {deal.price}{" "}
               <span className="text-sm text-gray-600 font-normal">
                 per person
               </span>

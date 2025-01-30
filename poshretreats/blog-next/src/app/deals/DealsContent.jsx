@@ -187,8 +187,9 @@ export default function DealsContent({ deals, uniqueTags }) {
 
                 {/* Price Section */}
                 <div className="text-right mt-auto">
+                  
                   <p className="text-2xl font-bold font-roboto text-gray-900">
-                    {deal.price}{" "}
+                    From {deal.price}{" "}
                     <span className="text-sm font-normal text-gray-800">
                       per person
                     </span>

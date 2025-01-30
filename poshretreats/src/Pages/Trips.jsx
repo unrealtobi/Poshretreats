@@ -37,7 +37,7 @@ const Trips = () => {
       countUp(98, setSatisfaction);
       countUp(30, setGuidedTours);
       countUp(35, setDestinations);
-      countUp(120, setReviews);
+      countUp(39, setReviews);
     }
   }, [statsInView, countsStarted]);
   const countUp = (target, setValue) => {

@@ -319,7 +319,7 @@ const PastTrips = () => {
                     <img
                       src={secondImg}
                       alt="behind-1"
-                      className="w-full h-[80%] object-cover rounded-t"
+                      className="w-full h-[80%] object-cover"
                     />
                   </div>
                 )}
@@ -343,7 +343,7 @@ const PastTrips = () => {
                     <img
                       src={thirdImg}
                       alt="behind-2"
-                      className="w-full h-[80%] object-cover rounded-t"
+                      className="w-full h-[80%] object-cover "
                     />
                   </div>
                 )}
@@ -372,7 +372,7 @@ const PastTrips = () => {
                   <img
                     src={frontImg}
                     alt={title}
-                    className="w-full h-[80%] object-cover rounded-t"
+                    className="w-full h-[80%] object-cover "
                   />
 
                   {/* Trip info */}

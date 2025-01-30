@@ -42,9 +42,9 @@ const CardStack = () => {
         // Card styles
         const styles = [
           // Bottom card: Rotated and farther back
-          "z-10 transform scale-90 md:rotate-[-20deg] rotate-[-20deg] md:h-[400px] h-[200px] md:w-[300px] w-[130px] md:translate-x-[-80px] translate-x-[-50px]  -translate-y-[10px]",
+          "z-10 transform scale-90 md:rotate-[-20deg] rotate-[-20deg] md:h-[400px] h-[200px] md:w-[300px] w-[130px] md:translate-x-[-80px] translate-x-[-50px] md:-translate-y-6  -translate-y-[10px]",
           // Middle card: Less rotated
-          "z-20 transform scale-90 md:rotate-[-16deg] rotate-[-10deg] md:h-[320px] h-[250px] w-[120px] md:translate-x-[-50px] translate-x-[-40px] -translate-y-[10px]",
+          "z-20 transform scale-90 md:rotate-[-19deg] md:-translate-y-7 rotate-[-10deg] md:h-[350px] md:w-[250px] h-[250px] w-[120px] md:translate-x-[-50px] translate-x-[-40px] -translate-y-[10px]",
           // Top card: No rotation (first to pop out)
           "z-30 transform scale-100 rotate-0 -translate-x-8 md:w-[250px]  w-[100px] translate-y-0",
         ];

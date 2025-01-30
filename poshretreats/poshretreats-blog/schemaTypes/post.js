@@ -9,64 +9,73 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) =>
+        Rule.required()
+          .min(5)
+          .max(100)
+          .warning('Title is required and should be between 5-100 characters.'),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
+      options: {source: 'title', maxLength: 96},
+      validation: (Rule) => Rule.required().error('Slug is required.'),
     }),
     defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
       to: {type: 'author'},
+      validation: (Rule) => Rule.required().error('Author is required.'),
     }),
     defineField({
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Main Image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required().error('Main Image is required.'),
     }),
     defineField({
       name: 'categories',
       title: 'Categories',
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}],
+      validation: (Rule) => Rule.required().min(1).error('At least one category is required.'),
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: (Rule) => Rule.required().error('Publish date is required.'),
     }),
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text', // 'text' type allows you to input multi-line content
+      type: 'text',
       description: 'A short description of the blog post for SEO and previews',
+      validation: (Rule) =>
+        Rule.required().min(10).max(300).warning('Description should be 10-300 characters long.'),
     }),
     defineField({
       name: 'readTime',
       title: 'Estimated Read Time',
-      type: 'string', // Could use 'number' if you want to calculate it dynamically
+      type: 'string',
       description: 'Estimated reading time for the post (e.g., "10 mins read").',
+      validation: (Rule) => Rule.required().error('Estimated read time is required.'),
     }),
     defineField({
       name: 'tag',
       title: 'Tag',
-      type: 'string', // Use 'string' for one tag per blog
+      type: 'string',
       description: 'Add a single tag for the blog post.',
+      validation: (Rule) => Rule.required().error('Tag is required.'),
     }),
-
     defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (Rule) => Rule.required().error('Post body content is required.'),
     }),
   ],
 

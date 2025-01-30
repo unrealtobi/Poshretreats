@@ -347,7 +347,7 @@ const ContactUs = () => {
                 We’re here to help.
               </p>
               <p className="text-black font-roboto text-sm font-medium mt-2">
-                +1 (647) 555-5678
+                +44 (783) 829-8201
               </p>
             </div>
 
@@ -361,7 +361,7 @@ const ContactUs = () => {
                 Visit our Office HQ.
               </p>
               <p className="text-black font-roboto text-sm font-medium mt-2">
-                5-4658 Barter Street, Toronto, Canada.
+                128 City Road London EC1V 2NX.
               </p>
             </div>
           </div>

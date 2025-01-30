@@ -7,6 +7,7 @@ import FAQs from '../Pages/FAQs';
 import Trips from '../Pages/Trips';
 import PastTrips from '../Pages/PastTrips';
 import ContactUs from '../Pages/ContactUs';
+import Terms from '../Pages/Terms';
 const AppRouter = () => {
   return (
     <Router>
@@ -17,6 +18,7 @@ const AppRouter = () => {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/past-trips" element={<PastTrips />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path = "/termsandconditions" element={<Terms />} />
           <Route path="/contact-poshretreats" element={<ContactUs />} /> 
         </Routes>
       </Layout>

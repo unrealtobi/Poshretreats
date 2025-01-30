@@ -36,7 +36,7 @@ const AboutUs = () => {
       countUp(98, setSatisfaction);
       countUp(30, setGuidedTours);
       countUp(35, setDestinations);
-      countUp(120, setReviews);
+      countUp(39, setReviews);
     }
   }, [statsInView, countsStarted]);
   const countUp = (target, setValue) => {
@@ -152,7 +152,7 @@ const AboutUs = () => {
       {/* Unlock Adventures Section */}
       <div className=" mx-auto px-6 md:px-4 grid md:grid-cols-2 gap-8 py-12 items-start">
         {/* Left Section - Longer Image */}
-        <div className="relative rounded-2xl sm:h-[500px] sm:w-[450px] overflow-hidden shadow-lg h-[515px]">
+        <div className="relative rounded-2xl sm:h-[500px] sm:w-[450px] overflow-hidden shadow-lg md:h-[710px] h-[515px]">
           <img
             src="/greece.jpeg" // Replace with your actual image path
             alt="Longer Image Description"
@@ -176,11 +176,24 @@ const AboutUs = () => {
               destinations despite the unique challenges posed by certain
               passport holders.
             </p>
-            <p className="text-sm md:text-base">
-              Dedicated to curating exceptional journeys, our commitment lies in
-              crafting experiences that are deeply rooted in culture, profoundly
-              relaxing, and set against the backdrop of luxurious
-              accommodations.
+            <p className="text-sm font-roboto md:text-base">
+              <span className="text-customGreen font-medium"> Book with Confidence.</span> We are members of ABTA, meaning you will
+              benefit from ABTA’s assistance and Code of Conduct. All the
+              packages and Flight-Plus holidays we sell are covered by a scheme
+              that protects your money if the supplier fails. Other services,
+              such as hotels or flights on their own, may not be protected, and
+              you should ask us what protection is available. Many of the
+              flights and flight-inclusive holidays on this website are
+              financially protected by the ATOL scheme. But ATOL protection does
+              not apply to all holiday and travel services listed on this
+              website. Please ask us to confirm what protection may apply to
+              your booking. If you do not receive an ATOL Certificate then the
+              booking will not be ATOL protected. If you do receive an ATOL
+              Certificate but all the parts of your trip are not listed on it,
+              those parts will not be ATOL protected. Please see our booking
+              conditions for information or for more information about financial
+              protection and the ATOL Certificate go to:
+              www.atol.org.uk/ATOLCertificate”
             </p>
           </div>
 

@@ -3,6 +3,7 @@ import { RiFacebookFill } from "react-icons/ri";
 import { FaTiktok } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
 const Footer = () => {
   return (
     <div className="relative text-white bg-[url('/footerpic.jpeg')] bg-no-repeat bg-center w-full md:h-[500px] sm:h-[550px] h-[600px] bg-[length:200%_100%] sm:bg-[length:100%_100%] md:bg-[length:100%_auto] pb-6">
@@ -18,9 +19,27 @@ const Footer = () => {
         <p className="text-center px-8 md:px-0 text-gray-200 text-sm md:text-sm mt-2">
           Have questions or ready to book? Reach out to plan your next
           unforgettable adventure. <br />
-          We're here to make your dream trip a reality.
+          Posh Retreats is a member of Experience It Now Travel who are an
+          Accredited Body Member of Hays Travel Limited,{" "}
+          <span className="font-semibold">ATOL 5534</span>.
         </p>
 
+        <div className="flex items-center mt-4 gap-x-4">
+          <Image
+            src="/abta.png"
+            alt="ABTA Travel Logo"
+            width={100}
+            height={40}
+            className="h-6 md:h-6 w-auto"
+          />
+          <Image
+            src="/atol.png"
+            alt="ATOL Protection Logo"
+            width={100}
+            height={40}
+            className="h-6 md:h-6 w-auto"
+          />
+        </div>
         {/* Button */}
         <a
           href="https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new"

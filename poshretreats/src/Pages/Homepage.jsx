@@ -46,7 +46,7 @@ const HomePage = () => {
       countUp(98, setSatisfaction);
       countUp(30, setGuidedTours);
       countUp(35, setDestinations);
-      countUp(120, setReviews);
+      countUp(39, setReviews);
     }
   }, [statsInView, countsStarted]);
 
@@ -55,31 +55,28 @@ const HomePage = () => {
       id: 1,
       title: "POSH RETREATS",
       subtitle: "Travel Beyond Limits, Embrace the Extraordinary.",
-      date: "Sun, Aug 24, 2025 - Thu, Aug 28, 2025",
-      description: "Italy 2025",
+      date: "September 2023",
+      description: "Morocco: A Timeless Fusion of Tradition and Adventure",
       categories: ["Historical & Heritage", "City Escapes", "Adventures"],
-      image:
-        "https://www.travelandleisure.com/thmb/ZRRd3HEHr_QVT2i8Oa25p8MLUws=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/northeast-aegean-islands-samos-greece-GREEKISLES1216-eb7d5f258927481da453ceda6e9afcce.jpg",
+      image: "/morrocogroup.jpeg",
     },
     {
       id: 2,
       title: "POSH RETREATS",
       subtitle: "Escape to Serenity and Elegance.",
-      date: "Fri, Sep 15, 2025 - Tue, Sep 19, 2025",
-      description: "Santorini: The Jewel of the Aegean Sea",
-      categories: ["Food & Gastronomy", "Relaxation", "Cultural"],
-      image:
-        "https://www.travelandleisure.com/thmb/9PKMMxIL9W7tzjJiyIrFJY5rwNI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/london-uk-townhomes-lead-LONDONTG0521-81fb4f991a1e4d0d9153d89444838094.jpg",
+      date: "Sun, Dec 15, 2024 - Sun, Dec 29, 2024",
+      description: "Cancún: The Jewel of the Caribbean",
+      categories: ["Private", "Relaxation", "Cultural"],
+      image: "/20241222_113651.jpg",
     },
     {
       id: 3,
       title: "POSH RETREATS",
       subtitle: "Experience the Essence of Tranquility. ",
-      date: "Mon, Oct 1, 2025 - Fri, Oct 5, 2025",
-      description: "Bali Bliss Retreat ",
-      categories: ["Wellness", "Adventure", "Cultural", "Food & Gastronomy"],
-      image:
-        "https://images.goway.com/production/styles/hero_s1_3xl/s3/hero_image/A%C3%AFt%20Ben%20Haddou_Morocco_iStock-502546130%20%281%29.jpg?VersionId=rPGLfk7LO_RjIE3t_Vu.ifpSHjR8HAS0&h=1a7fbb6b&itok=e2nJEZUQ",
+      date: "Wed, Dec 30, 2020 - Wed, Jan 5, 2020",
+      description: "Thailand  Retreat ",
+      categories: ["Wellness", " Friend Group", "Beach"],
+      image: "/Thailand.jpeg",
     },
   ];
 
@@ -135,7 +132,7 @@ const HomePage = () => {
           <img
             src={slides[currentSlide].image}
             alt="Slide Background"
-            className="w-full h-[595px] rounded-xl animate-smoothOpening object-cover "
+            className="w-full h-[595px] rounded-xl animate-smoothOpening  object-cover "
           />
           <div className="absolute inset-0 animate-smoothOpening bg-black bg-opacity-40 rounded-xl"></div>
 
@@ -151,7 +148,9 @@ const HomePage = () => {
                 {slides[currentSlide].subtitle}
               </h2>
               <h1
-                className="text-white font-bold text-[50px] order-1 md:order-2 leading-tight -translate-x-2 md:text-9xl sm:text-[73px]  font-raleway relative"
+                className="text-white font-bold order-1 md:order-2 leading-tight -translate-x-2 
+             text-[50px] sm:text-[73px] md:text-[clamp(80px,11vw,160px)] 
+             font-raleway relative"
                 style={{
                   WebkitMaskImage:
                     "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 100%)",
@@ -187,8 +186,17 @@ const HomePage = () => {
               </div>
               <div className="md:flex md:items-center tablet:justify-between   justify-between mt-4">
                 {/* Join Button */}
-                <button className="bg-white text-xs md:text-sm  text-customGreen px-6 md:px-6 py-2.5 md:py-2.5 rounded-lg font-medium">
-                  Join this Trip
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                  className="bg-white text-xs md:text-sm  text-customGreen px-6 md:px-6 py-2.5 md:py-2.5 rounded-lg font-medium"
+                >
+                  Book a Trip
                 </button>
 
                 {/* Arrows and Progress Bar */}
@@ -236,7 +244,7 @@ const HomePage = () => {
         className="bg-customBg md:py-16 md:w-full z-10 md:mt-24 sm:mt-28 mt-24  pb-32 sm:pb-36 relative"
       >
         <div className="md:w-full w-auto">
-          <div className="grid md:grid-cols-4 sm:grid-cols-4 grid-cols-2 gap-8 md:gap-16 md:border-t sm:border-t border-t border-gray-300">
+          <div className="grid md:grid-cols-4 sm:grid-cols-4 grid-cols-2 gap-8 md:gap-16  border-gray-300">
             {/* Statistic Item 1 */}
             <div className="flex flex-col items-center text-center border-r border-gray-300 last:border-r-0 ">
               <h3 className="md:text-6xl sm:text-4xl text-3xl font-bold  font-raleway">
@@ -301,11 +309,34 @@ const HomePage = () => {
             <span className="text-customGreen">Without Limits</span>
           </h1>
           <p className="font-roboto text-gray-700 md:text-base px-8 md:px-16 tablet:px-20 text-sm mt-4 md:mt-8">
-            Posh Retreats emerged from a profound passion for exploring the
-            world, transcending the barriers of passport privilege. Our
-            philosophy rejects the limitations of waiting for travel companions
-            and instead champions the spirit of action.
+            <span className="text-customGreen font-medium ">
+              Book with Confidence.
+            </span>{" "}
+            As ABTA members, you benefit from ABTA’s assistance and
+            <a
+              href="http://abta.com/go-travel/before-you-travel/travel-tips/financial-protection-4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline ml-0.5"
+            >
+              financial protection.
+            </a>{" "}
+            Many flights and flight-inclusive holidays on this website are
+            protected by the ATOL scheme. However, ATOL protection does not
+            cover all bookings—please check what applies to yours. If you
+            receive an ATOL Certificate, ensure all trip components are listed;
+            otherwise, those parts won’t be protected. Learn more at
+            <a
+              href="https://www.atol.org/about-atol/atol-certificates/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 ml-0.5 underline"
+            >
+              www.atol.org.uk/ATOLCertificate
+            </a>
+            .
           </p>
+
           <a
             href="/contact-poshretreats"
             className="relative  w-32 md:mt-8 mt-3 bg-customGreen md:text-sm  text-xs font-roboto font-medium text-white px-6 md:py-3 py-2.5 rounded-md shadow-md hover:shadow-lg overflow-hidden hover:bg-customDarkGreen group hover:bg- transition-colors duration-300 ease-in-out"

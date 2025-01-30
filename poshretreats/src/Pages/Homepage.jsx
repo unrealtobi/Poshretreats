@@ -312,7 +312,7 @@ const HomePage = () => {
             <span className="text-customGreen font-medium ">
               Book with Confidence.
             </span>{" "}
-            As ABTA members, you benefit from ABTA’s assistance and
+            {/* As ABTA members, you benefit from ABTA’s assistance and
             <a
               href="http://abta.com/go-travel/before-you-travel/travel-tips/financial-protection-4"
               target="_blank"
@@ -333,8 +333,8 @@ const HomePage = () => {
               className="text-blue-600 ml-0.5 underline"
             >
               www.atol.org.uk/ATOLCertificate
-            </a>
-            .
+            </a> */}
+            We are a Member of ABTA which means you have the benefit of ABTA’s assistance and Code of Conduct. All the package and Flight-Plus holidays we sell are covered by a scheme protecting your money if the supplier fails. Other services such as hotels or flights on their own may not be protected and you should ask us what protection is available.
           </p>
 
           <a

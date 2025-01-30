@@ -151,7 +151,7 @@ const AboutUs = () => {
       {/* Unlock Adventures Section */}
       <div className=" mx-auto px-6 md:px-4 grid md:grid-cols-2 gap-8 py-12 items-start">
         {/* Left Section - Longer Image */}
-        <div className="relative rounded-2xl sm:h-[500px] sm:w-[450px] overflow-hidden shadow-lg md:h-[710px] h-[515px]">
+        <div className="relative rounded-2xl sm:h-[500px] sm:w-[450px] overflow-hidden shadow-lg md:h-[543px] h-[515px]">
           <img
             src="/greece.jpeg" // Replace with your actual image path
             alt="Longer Image Description"
@@ -180,7 +180,7 @@ const AboutUs = () => {
                 {" "}
                 Book with Confidence.{" "}
               </span>
-              We are members of ABTA, meaning you will benefit from ABTA’s
+              {/* We are members of ABTA, meaning you will benefit from ABTA’s
               assistance and Code of Conduct. All the packages and Flight-Plus
               holidays we sell are covered by a scheme that protects your money
               if the supplier fails. Other services, such as hotels or flights
@@ -203,8 +203,13 @@ const AboutUs = () => {
                 className="text-customGreen underline hover:text-customGreen-dark transition"
               >
                 www.atol.org.uk/ATOLCertificate
-              </a>
-              .
+              </a> */}
+              We are a Member of ABTA which means you have the benefit of ABTA’s
+              assistance and Code of Conduct. All the package and Flight-Plus
+              holidays we sell are covered by a scheme protecting your money if
+              the supplier fails. Other services such as hotels or flights on
+              their own may not be protected and you should ask us what
+              protection is available..
             </p>
           </div>
 

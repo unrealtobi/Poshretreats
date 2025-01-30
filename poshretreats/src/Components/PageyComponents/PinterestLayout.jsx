@@ -15,7 +15,7 @@ const images = [
   },
   {
     id: 3,
-    src: "/jacknb.jpeg",
+    src: "/Jacknb.jpeg",
     alt: "Image 3",
     tags: ["Souk Stroll"],
   },

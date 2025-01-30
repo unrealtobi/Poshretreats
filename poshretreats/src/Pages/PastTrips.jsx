@@ -6,7 +6,7 @@ const PastTrips = () => {
   const trips = [
     {
       id: 1,
-      title: "Beautiful Sceneries",
+      title: "Perfectly Curated",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737456276/c7eaa10b-f4d8-4e80-b19c-5826f86976d6_fr0o5k.jpg",
       style:
@@ -22,7 +22,7 @@ const PastTrips = () => {
     },
     {
       id: 3,
-      title: "Beach Fun",
+      title: "Island Hopping ",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737455337/IMG_7738_1_bcwvq9.png",
       style:
@@ -38,15 +38,15 @@ const PastTrips = () => {
     },
     {
       id: 5,
-      title: "Para Sailing",
+      title: "Souk Stroll ",
       image:
-        "https://res.cloudinary.com/dtaqusjav/image/upload/v1737456839/IMG_7335_1_ik7pjx.jpg",
+        "/Jacknb.jpeg",
       style:
         "md:top-[290px] top-[410px] md:right-[-70px] sm:top-[380px] sm:right-[-60px] right-[50px] mt-16 rotate-[8.46deg]",
     },
     {
       id: 6,
-      title: "UNESCO Sites",
+      title: "Cultural Excursions",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737455336/IMG_7736_qarknl.jpg",
       style:

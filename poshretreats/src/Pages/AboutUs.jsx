@@ -64,7 +64,7 @@ const AboutUs = () => {
   const trips = [
     {
       id: 1,
-      title: "Beautiful Sceneries",
+      title: "Perfectly Curated",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737456276/c7eaa10b-f4d8-4e80-b19c-5826f86976d6_fr0o5k.jpg",
       style:
@@ -80,7 +80,7 @@ const AboutUs = () => {
     },
     {
       id: 3,
-      title: "Beach Fun",
+      title: "Island Hopping ",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737455337/IMG_7738_1_bcwvq9.png",
       style:
@@ -96,15 +96,14 @@ const AboutUs = () => {
     },
     {
       id: 5,
-      title: "Jet Ski-ing ",
-      image:
-        "https://res.cloudinary.com/dtaqusjav/image/upload/v1737456839/IMG_7335_1_ik7pjx.jpg",
+      title: "Souk Stroll ",
+      image: "/Jacknb.jpeg",
       style:
         "md:top-[290px] top-[410px] md:right-[-70px] sm:top-[380px] sm:right-[-60px] right-[50px] mt-16 rotate-[8.46deg]",
     },
     {
       id: 6,
-      title: "UNESCO Sites",
+      title: "Cultural Excursions",
       image:
         "https://res.cloudinary.com/dtaqusjav/image/upload/v1737455336/IMG_7736_qarknl.jpg",
       style:
@@ -177,23 +176,35 @@ const AboutUs = () => {
               passport holders.
             </p>
             <p className="text-sm font-roboto md:text-base">
-              <span className="text-customGreen font-medium"> Book with Confidence.</span> We are members of ABTA, meaning you will
-              benefit from ABTA’s assistance and Code of Conduct. All the
-              packages and Flight-Plus holidays we sell are covered by a scheme
-              that protects your money if the supplier fails. Other services,
-              such as hotels or flights on their own, may not be protected, and
-              you should ask us what protection is available. Many of the
-              flights and flight-inclusive holidays on this website are
-              financially protected by the ATOL scheme. But ATOL protection does
-              not apply to all holiday and travel services listed on this
-              website. Please ask us to confirm what protection may apply to
-              your booking. If you do not receive an ATOL Certificate then the
-              booking will not be ATOL protected. If you do receive an ATOL
-              Certificate but all the parts of your trip are not listed on it,
-              those parts will not be ATOL protected. Please see our booking
-              conditions for information or for more information about financial
-              protection and the ATOL Certificate go to:
-              www.atol.org.uk/ATOLCertificate”
+              <span className="text-customGreen font-medium">
+                {" "}
+                Book with Confidence.{" "}
+              </span>
+              We are members of ABTA, meaning you will benefit from ABTA’s
+              assistance and Code of Conduct. All the packages and Flight-Plus
+              holidays we sell are covered by a scheme that protects your money
+              if the supplier fails. Other services, such as hotels or flights
+              on their own, may not be protected, and you should ask us what
+              protection is available. Many of the flights and flight-inclusive
+              holidays on this website are financially protected by the ATOL
+              scheme. But ATOL protection does not apply to all holiday and
+              travel services listed on this website. Please ask us to confirm
+              what protection may apply to your booking. If you do not receive
+              an ATOL Certificate then the booking will not be ATOL protected.
+              If you do receive an ATOL Certificate but all the parts of your
+              trip are not listed on it, those parts will not be ATOL protected.
+              Please see our booking conditions for information or for more
+              information about financial protection and the ATOL Certificate go
+              to:
+              <a
+                href="https://www.atol.org/about-atol/atol-certificates/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-customGreen underline hover:text-customGreen-dark transition"
+              >
+                www.atol.org.uk/ATOLCertificate
+              </a>
+              .
             </p>
           </div>
 

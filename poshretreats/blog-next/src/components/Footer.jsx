@@ -24,7 +24,7 @@ const Footer = () => {
           <span className="font-semibold">ATOL 5534</span>.
         </p>
 
-        <div className="flex items-center mt-4 gap-x-4">
+        <div className="flex items-center  bg-customBg py-2 rounded-md px-4 mt-10 gap-x-4">
           <Image
             src="/abta.png"
             alt="ABTA Travel Logo"
@@ -41,22 +41,15 @@ const Footer = () => {
           />
         </div>
         {/* Button */}
-        <a
-          href="https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new"
-          target="_blank" // Opens the link in a new window or tab
-          rel="noopener noreferrer" // Improves security by preventing access to the window object
-          className="mt-6 px-6 py-3 bg-white text-customGreen font-medium text-sm rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
-        >
-          Book a Trip
-        </a>
+       
 
         {/* Footer Text */}
-        <h1 className="md:absolute md:bottom-8 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
+        <h1 className="md:absolute md:bottom-12 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
           POSH RETREATS
         </h1>
 
         {/* Social Icons */}
-        <div className="md:absolute md:bottom-1 bottom-4 absolute flex  items-center gap-4">
+        <div className="md:absolute md:bottom-4 bottom-6 absolute flex  items-center gap-4">
           <a href="" aria-label="TikTok" className="text-white text-xl">
             <FaTiktok />
           </a>
@@ -70,7 +63,7 @@ const Footer = () => {
             <RiFacebookFill />
           </a>
         </div>
-        <div className="mt-7 text-sm translate-y-48  text-gray-300">
+        <div className="mt-7 text-sm translate-y-52  text-gray-300">
           <a
             href="https://poshretreats.vercel.app/termsandconditions"
             className="underline hover:text-white transition duration-300"

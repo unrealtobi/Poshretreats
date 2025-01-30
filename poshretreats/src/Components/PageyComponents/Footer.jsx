@@ -23,7 +23,7 @@ const Footer = () => {
           Posh Retreats is a member of Experience It Now Travel who are an
           Accredited Body Member of Hays Travel Limited, ATOL 5534
         </p>
-        <div className="flex items-center  mt-4 gap-x-4">
+        <div className="flex items-center bg-customBg py-2 rounded-md px-4 mt-10 gap-x-4">
           <img src="/abta.png" alt="abta Travel Logo" className="h-6 md:h-6" />
           <img
             src="/atol.png"
@@ -32,7 +32,7 @@ const Footer = () => {
           />
         </div>
         {/* Button */}
-        <button
+        {/* <button
           onClick={() =>
             window.open(
               "https://app.tern.travel/public/forms/6OZArpyESYkxT9vf8rDf0g/responses/new",
@@ -43,15 +43,15 @@ const Footer = () => {
           className="mt-6 px-6 py-3 bg-white text-customGreen font-medium text-sm rounded-md shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
         >
           Book a Trip
-        </button>
+        </button> */}
 
         {/* Footer Text */}
-        <h1 className="md:absolute md:bottom-8 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
+        <h1 className="md:absolute md:bottom-12 md:left-0 md:right-0 absolute bottom-12 left-0 right-0 text-center font-bold text-6xl sm:text-7xl md:text-9xl text-white font-raleway tracking-widest">
           POSH RETREATS
         </h1>
 
         {/* Social Icons */}
-        <div className="md:absolute md:bottom-1 bottom-4 absolute flex  items-center gap-4">
+        <div className="md:absolute md:bottom-4 bottom-6 absolute flex  items-center gap-4">
           <a
             href="https://www.tiktok.com/@posh.retreats?_t=8jfaklTKkdc&_r=1"
             aria-label="TikTok"
@@ -95,7 +95,7 @@ const Footer = () => {
             <FaTelegram />
           </a>
         </div>
-        <div className="mt-7 text-sm translate-y-48  text-gray-300">
+        <div className="mt-7 text-sm translate-y-52  text-gray-300">
           <a
             href="/termsandconditions"
             className="underline hover:text-white transition duration-300"

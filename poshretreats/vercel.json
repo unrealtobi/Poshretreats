@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/blogs/:path*",
-      "destination": "https://poshretreatsuk.vercel.app/:path*"
-    },
-    {
       "source": "/deals/:path*",
       "destination": "https://poshretreatsuk.vercel.app/deals/:path*"
     },

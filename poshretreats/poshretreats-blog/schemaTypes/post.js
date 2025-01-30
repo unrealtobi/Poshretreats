@@ -36,13 +36,7 @@ export default defineType({
       options: {hotspot: true},
       validation: (Rule) => Rule.required().error('Main Image is required.'),
     }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-      validation: (Rule) => Rule.required().min(1).error('At least one category is required.'),
-    }),
+
     defineField({
       name: 'publishedAt',
       title: 'Published at',

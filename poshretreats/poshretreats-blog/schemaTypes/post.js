@@ -49,7 +49,7 @@ export default defineType({
       type: 'text',
       description: 'A short description of the blog post for SEO and previews',
       validation: (Rule) =>
-        Rule.required().min(10).max(300).warning('Description should be 10-300 characters long.'),
+        Rule.required().min(10).max(500).warning('Description should be 10-500 characters long.'),
     }),
     defineField({
       name: 'readTime',

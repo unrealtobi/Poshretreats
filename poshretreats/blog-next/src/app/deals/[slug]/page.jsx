@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
     .height(630)
     .url();
 
-  const url = `https://poshretreatsuk.vercel.app/deals/${slug}`;
+  const url = `https://explore.poshretreats.co.uk/deals/${slug}`;
   const notableInclusions = deal.notableInclusions
     ? deal.notableInclusions.join(", ")
     : "";

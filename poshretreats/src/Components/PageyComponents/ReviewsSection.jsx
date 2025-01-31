@@ -298,7 +298,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[0].image}
                   alt={reviews[0].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -320,7 +320,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[1].image}
                   alt={reviews[1].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -342,7 +342,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[2].image}
                   alt={reviews[2].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -364,7 +364,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[3].image}
                   alt={reviews[3].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -385,7 +385,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[4].image}
                   alt={reviews[4].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12  object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -406,7 +406,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[5].image}
                   alt={reviews[5].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -427,7 +427,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[6].image}
                   alt={reviews[6].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">
@@ -448,7 +448,7 @@ const ReviewsSection = () => {
                 <img
                   src={reviews[7].image}
                   alt={reviews[7].name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  className="w-12 h-12 object-cover rounded-full mr-4"
                 />
                 <div>
                   <h3 className="font-normal font-roboto text-sm text-gray-900">

@@ -84,13 +84,13 @@ const Trips = () => {
 
             {/* Image (starts animation 2s later) */}
             <img
-              src="/girl.svg"
+              src="/pirls.png"
               alt="Human Silhouette"
               className="
             absolute
             bottom-[0px] md:bottom-[0px]
             z-20
-            w-[800px] sm:w-[500px] md:w-[800px]
+            w-[340px] sm:w-[370px] md:w-[500px]
             md:delay-[2s]             /* waits 2 seconds before animating */
             md:animate-bounce-up      /* bounce-up animation from below */
           "

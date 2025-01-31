@@ -3,48 +3,7 @@ import { useRouter } from "next/navigation"; // Correct import for Next.js 13+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { TiTick } from "react-icons/ti";
-export async function generateMetadata({ deals }) {
-  if (!deals || deals.length === 0) {
-    return {
-      title: "Travel Deals - Posh Retreats",
-      description:
-        "Explore unbeatable travel deals and start your dream journey today.",
-    };
-  }
 
-  // Use the first deal as the representative deal
-  const firstDeal = deals[0];
-
-  const imageUrl = firstDeal.mainImage?.asset?.url || "";
-  const notableInclusions =
-    firstDeal.notableInclusions?.slice(0, 2).join(", ") || "";
-  const description = `Discover ${firstDeal.title} for just ${firstDeal.price}. Highlights: ${notableInclusions}.`;
-
-  return {
-    title: `${firstDeal.title} - Only ${firstDeal.price}`,
-    description: description,
-    openGraph: {
-      title: `${firstDeal.title} - Only ${firstDeal.price}`,
-      description: description,
-      url: `https://poshretreatsuk.vercel.app/deals/${firstDeal.slug.current}`,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: firstDeal.title,
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${firstDeal.title} - Only ${firstDeal.price}`,
-      description: description,
-      images: [imageUrl],
-    },
-  };
-}
 function highlightText(text = "", query = "") {
   if (!query) return text;
   const regex = new RegExp(`(${query})`, "gi");

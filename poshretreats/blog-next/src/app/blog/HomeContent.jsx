@@ -8,48 +8,7 @@ import { useRouter } from "next/navigation"; // (Optional) If you plan to naviga
  * Helper function to highlight search matches within a text string.
  * Wraps matching text in a <mark> tag.
  */
-export async function generateMetadata({ posts }) {
-  if (!posts || posts.length === 0) {
-    return {
-      title: "Blogs - Posh Retreats",
-      description: "Explore inspiring travel stories and tips from Posh Retreats.",
-    };
-  }
 
-  // Fetch the first post as a representative blog
-  const firstPost = posts[0];
-
-  const imageUrl = firstPost.mainImage?.asset?.url || "";
-  const description =
-    firstPost.description.length > 160
-      ? `${firstPost.description.slice(0, 157)}...`
-      : firstPost.description;
-
-  return {
-    title: `${firstPost.title} - Posh Retreats`,
-    description: description,
-    openGraph: {
-      title: `${firstPost.title} - Posh Retreats`,
-      description: description,
-      url: `https://poshretreatsuk.vercel.app/blog/${firstPost.slug.current}`,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: firstPost.title,
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${firstPost.title} - Posh Retreats`,
-      description: description,
-      images: [imageUrl],
-    },
-  };
-}
 
 function highlightText(text = "", query = "") {
   if (!query) return text;

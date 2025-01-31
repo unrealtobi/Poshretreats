@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     .image(blogPost.mainImage?.asset?.url)
     .url();
 
-  const url = `https://poshretreatsuk.vercel.app/blog/${slug}`;
+  const url = `https://explore.poshretreats.co.uk/blog/${slug}`;
 
   return {
     title: blogPost.title,

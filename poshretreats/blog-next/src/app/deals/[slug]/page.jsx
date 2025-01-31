@@ -98,6 +98,7 @@ export default async function DealPage({ params }) {
     notableExclusions,
     included,
     excluded,
+     pricePerPerson,
     innerDescription,
     dealTag,
     rating,
@@ -228,14 +229,16 @@ export default async function DealPage({ params }) {
             {/* Price */}
             <p className="text-2xl font-bold font-roboto text-gray-900">
               From {deal.price}{" "}
-              <span className="text-sm text-gray-600 font-normal">
-                per person
-              </span>
+              {deal.pricePerPerson && (
+                <span className="text-sm text-gray-600 font-normal">
+                  per person
+                </span>
+              )}
             </p>
 
             {/* Tag */}
             {deal.dealTag && (
-              <p className="text-green-700 bg-green-100 -translate-y-2 py-2 px-3 font-semibold text-xs rounded-full">
+              <p className="text-green-700 bg-green-100 -translate-y-2 py-2 px-3 font-semibold text-xs text-center rounded-full">
                 {deal.dealTag}
               </p>
             )}
@@ -315,10 +318,10 @@ export default async function DealPage({ params }) {
                   )}
                   {/* Tag */}
                   {deal.dealTag && (
-                  <span className="absolute top-2 left-2 bg-white text-green-700 text-xs font-bold px-4 py-2 rounded-full shadow-md">
-                    {deal.dealTag}
-                  </span>
-                )}
+                    <span className="absolute top-2 left-2 bg-white text-green-700 text-xs font-bold px-4 py-2 rounded-full shadow-md">
+                      {deal.dealTag}
+                    </span>
+                  )}
                 </div>
 
                 <div className="py-4 bg-white flex flex-col justify-between flex-grow shadow-lg rounded-b-lg">
@@ -360,7 +363,7 @@ export default async function DealPage({ params }) {
                     </p>
                     {deal.validUntil && (
                       <p className="text-xs text-gray-700 font-roboto mt-2">
-                      Trip starts:{" "}
+                        Trip starts:{" "}
                         {new Date(deal.validUntil).toLocaleDateString()}
                       </p>
                     )}

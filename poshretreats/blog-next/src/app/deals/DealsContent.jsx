@@ -146,12 +146,13 @@ export default function DealsContent({ deals, uniqueTags }) {
 
                 {/* Price Section */}
                 <div className="text-right mt-auto">
-                  
                   <p className="text-2xl font-bold font-roboto text-gray-900">
                     From {deal.price}{" "}
-                    <span className="text-sm font-normal text-gray-800">
-                      per person
-                    </span>
+                    {deal.pricePerPerson && (
+                      <span className="text-sm text-gray-600 font-normal">
+                        per person
+                      </span>
+                    )}
                   </p>
                   {deal.validUntil && (
                     <p className="text-xs  text-gray-700 font-roboto mt-2">

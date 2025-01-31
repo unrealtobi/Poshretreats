@@ -25,6 +25,7 @@ export default {
       validation: (Rule) => Rule.required(),
       placeholder: 'Enter a short, catchy tag (e.g., Best Seller, Limited Offer)',
     },
+
     {
       name: 'location',
       title: 'Location',
@@ -56,6 +57,13 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
       placeholder: 'Enter the price per person (e.g., $1500)',
+    },
+    {
+      name: 'pricePerPerson',
+      title: 'Price Per Person?',
+      type: 'boolean',
+      description: 'Specify if the price is per person.',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'validUntil',

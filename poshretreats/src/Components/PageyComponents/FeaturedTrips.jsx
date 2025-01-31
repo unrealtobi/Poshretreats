@@ -25,7 +25,9 @@ const FeaturedTrips = () => {
           },
           location,
           notableInclusions,
+           pricePerPerson,
           price
+
         }`;
 
         const results = await client.fetch(query);
@@ -122,17 +124,21 @@ const FeaturedTrips = () => {
               </ul>
               <div className="flex justify-end mt-4 items-center">
                 <p className="font-semibold text-2xl ">From {deal.price}</p>
-                <span className="text-gray-500 font-medium text-xs ml-1 font-roboto">
-                  {" "}
-                  pp
-                </span>
+                {deal.pricePerPerson && (
+                  <span className="text-gray-500 font-medium text-xs ml-1 font-roboto">
+                    pp
+                  </span>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <ReusableButton label="Explore More Deals" route="https://explore.poshretreats.co.uk/deals" />
+      <ReusableButton
+        label="Explore More Deals"
+        route="https://explore.poshretreats.co.uk/deals"
+      />
     </div>
   );
 };

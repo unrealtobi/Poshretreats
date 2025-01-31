@@ -1,12 +1,23 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Root-relative path for Render deployment
+  base: "/",
   build: {
-    outDir: 'dist', // Ensure the build output directory is 'dist'
-    sourcemap: true, // Optional for debugging
+    outDir: "dist",
+    sourcemap: false, // Disable source maps in production
+    minify: "terser", // Use Terser
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ["console.log", "console.warn"],
+      },
+      format: {
+        comments: false,
+      },
+      mangle: true,
+    },
   },
 });

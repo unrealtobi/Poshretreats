@@ -238,10 +238,7 @@ export default async function DealPage({ params }) {
                 Included
               </h2>
               <ul className="grid grid-cols-2 gap-4">
-                {[
-                  ...(deal.included || []),
-                  ...(deal.notableInclusions || []),
-                ].map((item, idx) => (
+                {(deal.included || []).map((item, idx) => (
                   <li
                     key={idx}
                     className="flex items-center md:text-base text-sm space-x-2 text-gray-800"

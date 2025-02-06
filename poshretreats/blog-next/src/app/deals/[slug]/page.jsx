@@ -151,7 +151,7 @@ export default async function DealPage({ params }) {
       </div>
 
       {/* Content Section */}
-      <h1 className="md:text-2xl text-xl font-semibold  font-raleway col-span-3 md:col-span-1 mb-3  md:mb-6">
+      <h1 className="md:text-2xl text-xl font-semibold text-gray-800  font-raleway col-span-3 md:col-span-1 mb-3  md:mb-6">
         Overview
       </h1>
       <div className="grid md:grid-cols-3 gap-14">
@@ -234,7 +234,7 @@ export default async function DealPage({ params }) {
           {/* Included Section */}
           {deal.included?.length > 0 && (
             <div className="mb-10">
-              <h2 className="md:text-2xl text-xl font-semibold font-raleway mb-4">
+              <h2 className="md:text-2xl text-gray-800 text-xl font-semibold font-raleway mb-4">
                 Included
               </h2>
               <ul className="grid grid-cols-2 gap-4">
@@ -254,7 +254,7 @@ export default async function DealPage({ params }) {
           {/* Excluded Section */}
           {deal.excluded?.length > 0 && (
             <div className="md:mb-10 mb-2">
-              <h2 className="md:text-2xl text-xl font-semibold font-raleway mb-4">
+              <h2 className="md:text-2xl text-xl text-gray-800 font-semibold font-raleway mb-4">
                 Excluded
               </h2>
               <ul className="grid grid-cols-2 gap-4">

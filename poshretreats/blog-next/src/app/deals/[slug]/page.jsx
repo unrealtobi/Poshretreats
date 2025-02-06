@@ -211,12 +211,12 @@ export default async function DealPage({ params }) {
                       </h4>
                     ),
                     h5: ({ children }) => (
-                      <h5 className="text-lg font-normal text-black my-4">
+                      <h5 className="text-lg font-medium text-black my-4">
                         {children}
                       </h5>
                     ),
                     h6: ({ children }) => (
-                      <h6 className="text-xl font-light text-black my-4">
+                      <h6 className="text-sm font-normal text-black my-4">
                         {children}
                       </h6>
                     ),

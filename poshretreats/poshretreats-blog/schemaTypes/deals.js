@@ -67,13 +67,13 @@ export default {
     },
     {
       name: 'validUntil',
-      title: 'Valid Until',
+      title: 'Trip Starts',
       type: 'date',
       options: {
         dateFormat: 'YYYY-MM-DD',
       },
       validation: (Rule) => Rule.required(),
-      placeholder: 'Enter the expiry date of the deal (e.g., 2025-12-31)',
+      placeholder: 'Enter the starting date of the trip (e.g., 2025-12-31)',
     },
     {
       name: 'innerDescription',

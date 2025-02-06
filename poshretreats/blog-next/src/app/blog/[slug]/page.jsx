@@ -209,6 +209,26 @@ export default async function BlogPostPage({ params }) {
                       {children}
                     </h2>
                   ),
+                  h3: ({ children }) => (
+                    <h3 className="text-2xl font-semibold text-black my-4">
+                      {children}
+                    </h3>
+                  ),
+                  h4: ({ children }) => (
+                    <h4 className="text-xl font-semibold text-black my-4">
+                      {children}
+                    </h4>
+                  ),
+                  h5: ({ children }) => (
+                    <h5 className="text-lg font-semibold text-black my-4">
+                      {children}
+                    </h5>
+                  ),
+                  h6: ({ children }) => (
+                    <h6 className="text-xl font-semibold text-black my-4">
+                      {children}
+                    </h6>
+                  ),
                   blockquote: ({ children }) => (
                     <blockquote className="pl-4 border-l-4 border-gray-300 italic text-gray-600 my-4">
                       {children}

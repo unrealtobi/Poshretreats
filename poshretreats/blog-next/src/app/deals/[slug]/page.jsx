@@ -7,6 +7,7 @@ import { IoMdRemove } from "react-icons/io";
 import Link from "next/link";
 // NO "use client" here so that we stay a Server Component
 import imageUrlBuilder from "@sanity/image-url";
+import { PortableText } from "@portabletext/react";
 
 // Configure the image URL builder
 const builder = imageUrlBuilder(client);
@@ -76,6 +77,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+export const revalidate = 0;
 export default async function DealPage({ params }) {
   const { slug } = params;
 
@@ -170,9 +172,63 @@ export default async function DealPage({ params }) {
 
           {/* Description */}
           {deal.innerDescription && (
-            <p className="md:text-base text-sm sm:w-[480px] font-roboto text-gray-700 mb-6">
-              {deal.innerDescription}
-            </p>
+            <div className="md:text-base text-sm sm:w-[480px] font-roboto text-gray-700 mb-6">
+              <PortableText
+                value={deal.innerDescription}
+                components={{
+                  marks: {
+                    link: ({ children, value }) => (
+                      <a
+                        href={value.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  },
+                  // Optional: custom block styles
+                  block: {
+                    h1: ({ children }) => (
+                      <h1 className="text-4xl font-extrabold text-black my-6">
+                        {children}
+                      </h1>
+                    ),
+                    h2: ({ children }) => (
+                      <h2 className="text-3xl font-bold text-black my-4">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="text-2xl font-semibold text-black my-4">
+                        {children}
+                      </h3>
+                    ),
+                    h4: ({ children }) => (
+                      <h4 className="text-xl font-medium text-black my-4">
+                        {children}
+                      </h4>
+                    ),
+                    h5: ({ children }) => (
+                      <h5 className="text-lg font-normal text-black my-4">
+                        {children}
+                      </h5>
+                    ),
+                    h6: ({ children }) => (
+                      <h6 className="text-xl font-light text-black my-4">
+                        {children}
+                      </h6>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="pl-4 border-l-4 border-gray-300 italic text-gray-600 my-4">
+                        {children}
+                      </blockquote>
+                    ),
+                  },
+                }}
+              />
+            </div>
           )}
 
           {/* Included Section */}

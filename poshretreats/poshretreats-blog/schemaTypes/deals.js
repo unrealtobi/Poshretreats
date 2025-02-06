@@ -78,11 +78,12 @@ export default {
     {
       name: 'innerDescription',
       title: 'Inner Description of Deal',
-      type: 'text',
-      rows: 5,
+      type: 'array',
+      of: [{ type: 'block' }],
       validation: (Rule) => Rule.required(),
-      placeholder: 'Enter a detailed description of the deal (e.g., features, highlights, etc.)',
+      description: 'Enter a detailed description of the deal (supports formatting).',
     },
+    
     {
       name: 'notableInclusions',
       title: 'Notable Inclusions',
@@ -92,15 +93,15 @@ export default {
       validation: (Rule) => Rule.required(),
       placeholder: 'Enter notable inclusions of the deal.',
     },
-    {
-      name: 'notableExclusions',
-      title: 'Notable Exclusions',
-      type: 'array',
-      of: [{type: 'string'}],
-      description: 'List notable exclusions of the deal (e.g., Flights, Personal expenses).',
-      validation: (Rule) => Rule.required(),
-      placeholder: 'Enter notable exclusions of the deal.',
-    },
+    // {
+    //   name: 'notableExclusions',
+    //   title: 'Notable Exclusions',
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    //   description: 'List notable exclusions of the deal (e.g., Flights, Personal expenses).',
+    //   validation: (Rule) => Rule.required(),
+    //   placeholder: 'Enter notable exclusions of the deal.',
+    // },
     {
       name: 'rating',
       title: 'Rating',

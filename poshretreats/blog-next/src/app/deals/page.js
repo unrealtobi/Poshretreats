@@ -1,5 +1,6 @@
 import client from "@/sanityClient";
 import DealsContent from "./DealsContent"; // Import the DealsContent component
+export const revalidate = 0;
 
 export default async function Deals() {
   // Fetch deals from Sanity

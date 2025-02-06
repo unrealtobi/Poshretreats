@@ -1,5 +1,6 @@
 import client from "@/sanityClient";
 import HomeContent from "./blog/HomeContent"; // <-- import the Client Component
+export const revalidate = 0;
 
 export default async function Home() {
   // 1. Fetch blog posts from Sanity on the server

@@ -11,7 +11,7 @@ const FAQs = () => {
       id: 1,
       question: "Do you book flights?",
       answer:
-        "No, we do not book flights. However, upon signing up for a trip, you will be added to a dedicated WhatsApp group where we regularly share valuable travel tips and alert you to the best flight deals as we come across them. Our experience has shown that Tuesdays and Wednesdays typically offer the most budget-friendly flight options for your convenience.",
+        "Yes, we book flights. However, upon signing up for a trip, you will be added to a dedicated WhatsApp group where we regularly share valuable travel tips and alert you to the best flight deals as we come across them. Our experience has shown that Tuesdays and Wednesdays typically offer the most budget-friendly flight options for your convenience.",
     },
     {
       id: 2,

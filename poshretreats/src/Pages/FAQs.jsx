@@ -10,7 +10,7 @@ const FAQs = () => {
       id: 1,
       question: "Do you book flights?",
       answer:
-        "No, we do not book flights. However, upon signing up for a trip, you will be added to a dedicated WhatsApp group where we regularly share valuable travel tips and alert you to the best flight deals as we come across them.",
+        "Yes, we book flights. However, upon signing up for a trip, you will be added to a dedicated WhatsApp group where we regularly share valuable travel tips and alert you to the best flight deals as we come across them.",
     },
     {
       id: 2,
@@ -53,13 +53,13 @@ const FAQs = () => {
       id: 8,
       question: "Do you charge for this service?",
       answer:
-        "Yes, we do charge for our custom trip-planning service. It’s £15 per adult and £5 per child. This covers the time and effort we put into crafting a trip just right for you!",
+        "Yes, we do charge for our custom trip-planning service. It’s $35 per request. This covers the time and effort we put into crafting a trip just right for you!",
     },
     {
       id: 9,
       question: "How do you plan a private trip?",
       answer:
-        "Planning your private trip with us is simple! Once you reach out, we'll discuss your ideal holiday—your budget, preferred accommodation, flights, and activities. Based on your input, we’ll propose various options so you can pick the perfect holiday tailored just for you.",
+        "Planning your private trip with us is simple! Once you reach out, we'll discuss your ideal holiday, your budget, preferred accommodation, flights, and activities. Based on your input, we’ll propose various options so you can pick the perfect holiday tailored just for you.",
     },
   ];
 

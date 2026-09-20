@@ -177,39 +177,17 @@ const AboutUs = () => {
             </p>
             <p className="text-sm font-roboto md:text-base">
               <span className="text-customGreen font-medium">
-                {" "}
                 Book with Confidence.{" "}
               </span>
-              {/* We are members of ABTA, meaning you will benefit from ABTA’s
-              assistance and Code of Conduct. All the packages and Flight-Plus
-              holidays we sell are covered by a scheme that protects your money
-              if the supplier fails. Other services, such as hotels or flights
-              on their own, may not be protected, and you should ask us what
-              protection is available. Many of the flights and flight-inclusive
-              holidays on this website are financially protected by the ATOL
-              scheme. But ATOL protection does not apply to all holiday and
-              travel services listed on this website. Please ask us to confirm
-              what protection may apply to your booking. If you do not receive
-              an ATOL Certificate then the booking will not be ATOL protected.
-              If you do receive an ATOL Certificate but all the parts of your
-              trip are not listed on it, those parts will not be ATOL protected.
-              Please see our booking conditions for information or for more
-              information about financial protection and the ATOL Certificate go
-              to:
-              <a
-                href="https://www.atol.org/about-atol/atol-certificates/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-customGreen underline hover:text-customGreen-dark transition"
-              >
-                www.atol.org.uk/ATOLCertificate
-              </a> */}
-              We are a Member of ABTA which means you have the benefit of ABTA’s
-              assistance and Code of Conduct. All the package and Flight-Plus
-              holidays we sell are covered by a scheme protecting your money if
-              the supplier fails. Other services such as hotels or flights on
-              their own may not be protected and you should ask us what
-              protection is available..
+              We are protected by ATOL and Protected Trust Services (PTS),
+              providing financial protection for your holiday booking. ATOL
+              protection applies to eligible flight-inclusive holidays and
+              flights sold under our ATOL arrangements. Where your booking is
+              ATOL protected, you will receive an ATOL Certificate confirming
+              the protection applicable to your booking. PTS protection provides
+              additional financial protection through a trust account
+              arrangement, helping to safeguard money paid for your travel
+              arrangements.
             </p>
           </div>
 

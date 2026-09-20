@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   build: {
-    outDir: "dist",
+    outDir: ".dist",
     sourcemap: false, // Disable source maps in production
     minify: "terser", // Use Terser
     terserOptions: {

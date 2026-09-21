@@ -310,31 +310,13 @@ const HomePage = () => {
           </h1>
           <p className="font-roboto text-gray-700 md:text-base px-8 md:px-16 tablet:px-20 text-sm mt-4 md:mt-8">
             <span className="text-customGreen font-medium ">
-              Book with Confidence.
+              Travel with Confidence.
             </span>{" "}
-            {/* As ABTA members, you benefit from ABTA’s assistance and
-            <a
-              href="http://abta.com/go-travel/before-you-travel/travel-tips/financial-protection-4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline ml-0.5"
-            >
-              financial protection.
-            </a>{" "}
-            Many flights and flight-inclusive holidays on this website are
-            protected by the ATOL scheme. However, ATOL protection does not
-            cover all bookings—please check what applies to yours. If you
-            receive an ATOL Certificate, ensure all trip components are listed;
-            otherwise, those parts won’t be protected. Learn more at
-            <a
-              href="https://www.atol.org/about-atol/atol-certificates/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 ml-0.5 underline"
-            >
-              www.atol.org.uk/ATOLCertificate
-            </a> */}
-            We are a Member of ABTA which means you have the benefit of ABTA’s assistance and Code of Conduct. All the package and Flight-Plus holidays we sell are covered by a scheme protecting your money if the supplier fails. Other services such as hotels or flights on their own may not be protected and you should ask us what protection is available.
+            Exceptional journeys, protected every step of the way. Your booking
+            is protected through ATOL and Protected Trust Services (PTS), giving
+            you greater peace of mind from the moment you book to the moment you
+            return. Protection varies by booking and will be confirmed before
+            you travel.
           </p>
 
           <a

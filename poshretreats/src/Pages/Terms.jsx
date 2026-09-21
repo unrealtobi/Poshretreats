@@ -22,9 +22,10 @@ const Terms = () => {
         </h2>
 
         <p className="text-gray-700 text-sm md:text-base mt-4">
-          1.1 Posh Retreats Ltd is a trading name of Experience It Now Travel
-          and sells travel services on behalf of Hays Travel Limited. We benefit
-          from Hays Travel’s membership of ABTA with membership number P7133.
+          1.1 Posh Retreats sells travel services on behalf of Janine loves
+          Travel Limited. We benefit from JLT’s membership of ATOL with
+          membership number 12564 and PTS membership with membership number
+          6090.
         </p>
 
         {/* ABTA Protection */}
